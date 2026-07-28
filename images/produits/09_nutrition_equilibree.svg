@@ -1,0 +1,66 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F9FBF2"/>
+      <stop offset="100%" stop-color="#EEF7E0"/>
+    </linearGradient>
+    <linearGradient id="table" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D4C4A0"/>
+      <stop offset="100%" stop-color="#B8A478"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- table -->
+  <rect x="0" y="350" width="800" height="250" fill="url(#table)"/>
+  <line x1="0" y1="380" x2="800" y2="380" stroke="#9C8050" stroke-width="0.7" opacity="0.3"/>
+  <!-- main bowl - center -->
+  <ellipse cx="400" cy="355" rx="110" ry="28" fill="#F5F0E0" stroke="#D4C090" stroke-width="1.5"/>
+  <ellipse cx="400" cy="350" rx="105" ry="24" fill="#FAFAF5"/>
+  <!-- bowl contents -->
+  <!-- base: grains/quinoa -->
+  <ellipse cx="400" cy="342" rx="95" ry="20" fill="#F5E6C8" opacity="0.8"/>
+  <!-- greens on left -->
+  <ellipse cx="365" cy="330" rx="38" ry="18" fill="#4CAF50" transform="rotate(-10,365,330)"/>
+  <ellipse cx="348" cy="322" rx="30" ry="14" fill="#388E3C" transform="rotate(-25,348,322)"/>
+  <!-- cherry tomatoes -->
+  <circle cx="430" cy="325" r="12" fill="#EF5350"/>
+  <circle cx="450" cy="318" r="10" fill="#E53935"/>
+  <circle cx="420" cy="316" r="9" fill="#F44336"/>
+  <!-- seeds/grains scattered -->
+  <circle cx="395" cy="340" r="3" fill="#8D6E63"/>
+  <circle cx="408" cy="335" r="3" fill="#A1887F"/>
+  <circle cx="382" cy="338" r="2.5" fill="#795548"/>
+  <!-- cucumber/avocado green slice -->
+  <ellipse cx="375" cy="332" rx="20" ry="10" fill="#66BB6A" transform="rotate(10,375,332)" opacity="0.8"/>
+  <!-- small items on table around bowl -->
+  <!-- lemon half left -->
+  <circle cx="200" cy="380" r="45" fill="#FFF176" stroke="#F9A825" stroke-width="2"/>
+  <circle cx="200" cy="380" r="35" fill="#FFF9C4"/>
+  <line x1="200" y1="335" x2="200" y2="425" stroke="#F9A825" stroke-width="1.5"/>
+  <line x1="155" y1="380" x2="245" y2="380" stroke="#F9A825" stroke-width="1.5"/>
+  <line x1="168" y1="347" x2="232" y2="413" stroke="#F9A825" stroke-width="1"/>
+  <line x1="168" y1="413" x2="232" y2="347" stroke="#F9A825" stroke-width="1"/>
+  <!-- strawberries right -->
+  <path d="M580 350 Q595 330 610 350 Q615 375 595 385 Q575 375 580 350 Z" fill="#E53935"/>
+  <path d="M608 350 Q623 330 638 350 Q643 375 623 385 Q603 375 608 350 Z" fill="#EF5350"/>
+  <ellipse cx="595" cy="330" rx="8" ry="4" fill="#4CAF50"/>
+  <ellipse cx="623" cy="330" rx="8" ry="4" fill="#388E3C"/>
+  <!-- seeds on strawberry -->
+  <ellipse cx="595" cy="358" rx="2" ry="3" fill="#FFCDD2" opacity="0.7"/>
+  <ellipse cx="588" cy="368" rx="2" ry="3" fill="#FFCDD2" opacity="0.7"/>
+  <ellipse cx="603" cy="368" rx="2" ry="3" fill="#FFCDD2" opacity="0.7"/>
+  <!-- nuts/seeds small -->
+  <ellipse cx="530" cy="395" rx="12" ry="8" fill="#D4A017" transform="rotate(-20,530,395)"/>
+  <ellipse cx="555" cy="390" rx="10" ry="7" fill="#C8960F" transform="rotate(10,555,390)"/>
+  <ellipse cx="265" cy="395" rx="12" ry="8" fill="#D4A017" transform="rotate(15,265,395)"/>
+  <ellipse cx="240" cy="405" rx="10" ry="7" fill="#B8860B" transform="rotate(-10,240,405)"/>
+  <!-- fork -->
+  <rect x="500" y="340" width="8" height="120" rx="4" fill="#C0C0C0"/>
+  <rect x="496" y="338" width="4" height="30" rx="2" fill="#C0C0C0"/>
+  <rect x="504" y="338" width="4" height="30" rx="2" fill="#C0C0C0"/>
+  <rect x="512" y="338" width="4" height="30" rx="2" fill="#C0C0C0"/>
+  <!-- spoon -->
+  <rect x="292" y="345" width="7" height="115" rx="3" fill="#C0C0C0"/>
+  <ellipse cx="295" cy="338" rx="14" ry="18" fill="#D0D0D0"/>
+  <text x="400" y="556" text-anchor="middle" font-size="18" fill="#2E7D32" letter-spacing="3" font-style="italic">Coaching · Nutrition Équilibrée</text>
+</svg>

@@ -1,0 +1,53 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F0FAF5"/>
+      <stop offset="100%" stop-color="#E0F0EA"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#FFFDE7" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#F0FAF5" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#66BB6A"/>
+      <stop offset="100%" stop-color="#388E3C"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#glow)"/>
+  <!-- window light -->
+  <rect x="600" y="0" width="200" height="600" fill="#FFFDE7" opacity="0.12"/>
+  <!-- plants left -->
+  <rect x="60" y="310" width="60" height="75" rx="8" fill="#795548"/>
+  <ellipse cx="90" cy="308" rx="35" ry="10" fill="#6D4C41"/>
+  <path d="M90 285 Q70 255 50 225 Q80 245 90 275" stroke="#388E3C" stroke-width="4" fill="none"/>
+  <path d="M90 285 Q110 254 130 223 Q110 243 90 275" stroke="#2E7D32" stroke-width="4" fill="none"/>
+  <ellipse cx="50" cy="224" rx="20" ry="11" fill="#4CAF50" transform="rotate(-25,50,224)"/>
+  <ellipse cx="130" cy="221" rx="20" ry="11" fill="#388E3C" transform="rotate(20,130,221)"/>
+  <!-- plants right -->
+  <rect x="660" y="300" width="60" height="85" rx="8" fill="#5D4037"/>
+  <ellipse cx="690" cy="298" rx="35" ry="10" fill="#4E342E"/>
+  <path d="M690 275 Q672 248 655 218" stroke="#558B2F" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M690 275 Q708 247 725 216" stroke="#33691E" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="655" cy="216" rx="18" ry="10" fill="#8BC34A" transform="rotate(-20,655,216)"/>
+  <ellipse cx="725" cy="214" rx="18" ry="10" fill="#558B2F" transform="rotate(15,725,214)"/>
+  <!-- floor -->
+  <rect x="0" y="380" width="800" height="220" fill="#E8D4B8" opacity="0.3"/>
+  <!-- yoga mat -->
+  <path d="M120 370 L680 370 L680 480 L120 480 Z" fill="url(#mat)" rx="10" opacity="0.85"/>
+  <rect x="132" y="382" width="536" height="86" rx="6" fill="none" stroke="#81C784" stroke-width="1.5" opacity="0.4"/>
+  <!-- person lying down (simplified silhouette) -->
+  <!-- body -->
+  <ellipse cx="400" cy="415" rx="200" ry="28" fill="#FDBCB4" opacity="0.9"/>
+  <!-- head -->
+  <ellipse cx="590" cy="408" rx="36" ry="32" fill="#FDBCB4"/>
+  <!-- hair -->
+  <ellipse cx="610" cy="395" rx="30" ry="22" fill="#5D4037"/>
+  <!-- arms relaxed -->
+  <ellipse cx="400" cy="448" rx="190" ry="16" fill="#F5A58A" opacity="0.6"/>
+  <!-- serene face features -->
+  <path d="M578 412 Q582 416 586 412" fill="none" stroke="#8D4E35" stroke-width="2" stroke-linecap="round"/>
+  <path d="M574 408 Q578 406 582 408" fill="none" stroke="#8D4E35" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M587 408 Q591 406 595 408" fill="none" stroke="#8D4E35" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="400" y="556" text-anchor="middle" font-size="18" fill="#1B5E20" letter-spacing="3" font-style="italic">Coaching · Relaxation Profonde</text>
+</svg>

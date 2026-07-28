@@ -1,0 +1,55 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF8F0"/>
+      <stop offset="100%" stop-color="#FDE8D8"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D4B896"/>
+      <stop offset="100%" stop-color="#B89870"/>
+    </linearGradient>
+    <linearGradient id="mat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFB74D"/>
+      <stop offset="100%" stop-color="#E65100"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect x="600" y="0" width="200" height="600" fill="#FFFDE7" opacity="0.12"/>
+  <!-- floor -->
+  <rect x="0" y="390" width="800" height="210" fill="url(#floor)"/>
+  <!-- mat -->
+  <rect x="150" y="375" width="500" height="130" rx="12" fill="url(#mat)" opacity="0.8"/>
+  <!-- pregnant woman sitting meditation pose -->
+  <!-- legs crossed -->
+  <ellipse cx="400" cy="445" rx="130" ry="42" fill="#FDBCB4" opacity="0.85"/>
+  <!-- torso -->
+  <path d="M340 320 Q340 280 380 265 Q420 255 455 265 Q490 278 490 320 L480 440 L320 440 Z" fill="#FDBCB4" opacity="0.9"/>
+  <!-- pregnancy belly -->
+  <ellipse cx="415" cy="370" rx="62" ry="55" fill="#F5A58A" opacity="0.7"/>
+  <!-- head -->
+  <ellipse cx="410" cy="245" rx="45" ry="48" fill="#FDBCB4"/>
+  <!-- hair -->
+  <ellipse cx="410" cy="230" rx="48" ry="35" fill="#4E342E"/>
+  <path d="M365 240 Q368 280 366 300" stroke="#4E342E" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <!-- serene face -->
+  <path d="M398 262 Q408 268 418 262" fill="none" stroke="#8D4E35" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="398" cy="254" r="3" fill="#8D4E35" opacity="0.5"/>
+  <circle cx="420" cy="254" r="3" fill="#8D4E35" opacity="0.5"/>
+  <!-- arms in meditation mudra -->
+  <path d="M348 330 Q310 360 285 390 Q290 400 305 395 Q325 380 355 350" fill="#FDBCB4"/>
+  <path d="M465 330 Q500 360 520 390 Q515 400 500 395 Q480 380 455 350" fill="#FDBCB4"/>
+  <!-- hands resting on knees -->
+  <ellipse cx="288" cy="396" rx="20" ry="14" fill="#F5A58A"/>
+  <ellipse cx="512" cy="396" rx="20" ry="14" fill="#F5A58A"/>
+  <!-- clothes detail -->
+  <path d="M340 290 L360 440" stroke="#E8C090" stroke-width="2" opacity="0.4"/>
+  <path d="M478 290 L462 440" stroke="#E8C090" stroke-width="2" opacity="0.4"/>
+  <!-- plant small -->
+  <rect x="660" y="320" width="50" height="70" rx="6" fill="#795548"/>
+  <ellipse cx="685" cy="318" rx="30" ry="9" fill="#6D4C41"/>
+  <path d="M685 300 Q668 278 655 255" stroke="#388E3C" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M685 300 Q702 277 715 254" stroke="#2E7D32" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <ellipse cx="655" cy="253" rx="16" ry="9" fill="#4CAF50" transform="rotate(-20,655,253)"/>
+  <ellipse cx="715" cy="252" rx="16" ry="9" fill="#388E3C" transform="rotate(15,715,252)"/>
+  <text x="400" y="556" text-anchor="middle" font-size="18" fill="#BF360C" letter-spacing="3" font-style="italic">Coaching · Yoga Prénatal</text>
+</svg>

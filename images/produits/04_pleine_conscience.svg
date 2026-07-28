@@ -1,0 +1,58 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F5F8FF"/>
+      <stop offset="100%" stop-color="#E8F0FF"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8E0D8"/>
+      <stop offset="100%" stop-color="#D0C8BC"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- light floor -->
+  <rect x="0" y="390" width="800" height="210" fill="url(#floor)" opacity="0.4"/>
+  <!-- window side light -->
+  <rect x="620" y="0" width="180" height="600" fill="#FFFDE7" opacity="0.1"/>
+  <!-- 4 people sitting in circle meditation -->
+  <!-- mats for each person -->
+  <ellipse cx="400" cy="240" rx="55" ry="18" fill="#66BB6A" opacity="0.5"/>
+  <ellipse cx="560" cy="340" rx="55" ry="18" fill="#42A5F5" opacity="0.5"/>
+  <ellipse cx="400" cy="430" rx="55" ry="18" fill="#FFA726" opacity="0.5"/>
+  <ellipse cx="240" cy="340" rx="55" ry="18" fill="#AB47BC" opacity="0.5"/>
+  <!-- person top (back view) -->
+  <ellipse cx="400" cy="230" rx="30" ry="30" fill="#FDBCB4"/>
+  <ellipse cx="400" cy="215" rx="28" ry="20" fill="#4E342E"/>
+  <ellipse cx="400" cy="255" rx="38" ry="28" fill="#E8C4A0" opacity="0.9"/>
+  <ellipse cx="400" cy="270" rx="50" ry="20" fill="#E0B888" opacity="0.8"/>
+  <!-- person right -->
+  <ellipse cx="562" cy="325" rx="30" ry="30" fill="#FDBCB4"/>
+  <ellipse cx="562" cy="310" rx="28" ry="20" fill="#8D6E63"/>
+  <ellipse cx="562" cy="350" rx="38" ry="28" fill="#F0C8A0" opacity="0.9"/>
+  <ellipse cx="562" cy="365" rx="50" ry="20" fill="#E0B080" opacity="0.8"/>
+  <!-- person bottom (front view simplified) -->
+  <ellipse cx="400" cy="415" rx="30" ry="30" fill="#FDBCB4"/>
+  <ellipse cx="400" cy="400" rx="30" ry="22" fill="#3E2723"/>
+  <ellipse cx="400" cy="440" rx="38" ry="28" fill="#E8A880" opacity="0.9"/>
+  <ellipse cx="400" cy="455" rx="52" ry="20" fill="#D89870" opacity="0.8"/>
+  <!-- person left -->
+  <ellipse cx="238" cy="325" rx="30" ry="30" fill="#FDBCB4"/>
+  <ellipse cx="238" cy="310" rx="28" ry="20" fill="#1A237E" opacity="0.9"/>
+  <ellipse cx="238" cy="350" rx="38" ry="28" fill="#E0C8B0" opacity="0.9"/>
+  <ellipse cx="238" cy="365" rx="50" ry="20" fill="#CDB090" opacity="0.8"/>
+  <!-- subtle connection lines between people -->
+  <g opacity="0.12" stroke="#9575CD" stroke-width="2" stroke-dasharray="6,6">
+    <line x1="400" y1="260" x2="545" y2="318"/>
+    <line x1="545" y1="362" x2="445" y2="415"/>
+    <line x1="358" y1="415" x2="258" y2="365"/>
+    <line x1="258" y1="320" x2="375" y2="258"/>
+  </g>
+  <!-- plants corner -->
+  <rect x="680" y="300" width="55" height="90" rx="6" fill="#795548"/>
+  <ellipse cx="707" cy="298" rx="32" ry="10" fill="#6D4C41"/>
+  <path d="M707 278 Q690 255 676 230" stroke="#388E3C" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M707 278 Q725 254 738 228" stroke="#2E7D32" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="676" cy="228" rx="18" ry="10" fill="#4CAF50" transform="rotate(-20,676,228)"/>
+  <ellipse cx="738" cy="226" rx="18" ry="10" fill="#388E3C" transform="rotate(15,738,226)"/>
+  <text x="400" y="556" text-anchor="middle" font-size="18" fill="#311B92" letter-spacing="3" font-style="italic">Coaching · Pleine Conscience</text>
+</svg>

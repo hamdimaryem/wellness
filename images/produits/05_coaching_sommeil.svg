@@ -1,0 +1,63 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1C1A2E"/>
+      <stop offset="100%" stop-color="#0D0C1A"/>
+    </linearGradient>
+    <radialGradient id="moonlight" cx="70%" cy="20%" r="40%">
+      <stop offset="0%" stop-color="#B0A8D8" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#1C1A2E" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bed" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5F0E8"/>
+      <stop offset="100%" stop-color="#E8E0D0"/>
+    </linearGradient>
+    <linearGradient id="pillow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F0EDE5"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#moonlight)"/>
+  <!-- stars -->
+  <circle cx="80" cy="50" r="1.5" fill="white" opacity="0.6"/>
+  <circle cx="180" cy="80" r="1" fill="white" opacity="0.5"/>
+  <circle cx="120" cy="130" r="1.5" fill="white" opacity="0.4"/>
+  <circle cx="700" cy="60" r="1" fill="white" opacity="0.5"/>
+  <circle cx="650" cy="110" r="1.5" fill="white" opacity="0.6"/>
+  <!-- moon -->
+  <circle cx="660" cy="90" r="38" fill="#E8E0C8" opacity="0.2"/>
+  <circle cx="674" cy="80" r="32" fill="#1C1A2E" opacity="0.85"/>
+  <!-- headboard -->
+  <rect x="140" y="200" width="520" height="60" rx="16" fill="#2C2240"/>
+  <!-- bed frame -->
+  <rect x="120" y="250" width="560" height="200" rx="10" fill="#1A1530"/>
+  <!-- mattress & sheets -->
+  <rect x="130" y="255" width="540" height="190" rx="8" fill="url(#bed)"/>
+  <!-- duvet/blanket -->
+  <rect x="130" y="320" width="540" height="125" rx="8" fill="#E8E8F5" opacity="0.9"/>
+  <rect x="130" y="320" width="540" height="30" rx="4" fill="#D8D8EE"/>
+  <!-- folds in blanket -->
+  <path d="M150 365 Q250 358 350 363 Q450 368 550 362 Q620 358 660 365" fill="none" stroke="#C8C8E0" stroke-width="1.5" opacity="0.6"/>
+  <path d="M150 390 Q240 382 350 388 Q460 394 580 386 Q620 383 660 390" fill="none" stroke="#C8C8E0" stroke-width="1.5" opacity="0.5"/>
+  <!-- pillow -->
+  <rect x="440" y="260" width="180" height="80" rx="14" fill="url(#pillow)"/>
+  <!-- sleeping person silhouette -->
+  <!-- head on pillow -->
+  <ellipse cx="520" cy="290" rx="38" ry="35" fill="#FDBCB4"/>
+  <!-- hair -->
+  <ellipse cx="528" cy="276" rx="36" ry="26" fill="#4E342E"/>
+  <!-- body under blanket (just shape) -->
+  <path d="M220 340 Q220 330 340 328 Q440 326 520 330 L530 320 L540 320 L530 325 Q480 322 400 324 Q280 328 220 340 Z" fill="#F5F0E8" opacity="0.5"/>
+  <!-- ZZZ symbols -->
+  <text x="580" y="230" font-size="22" fill="#B0A8D8" opacity="0.4" font-style="italic">z</text>
+  <text x="610" y="205" font-size="30" fill="#B0A8D8" opacity="0.3" font-style="italic">z</text>
+  <text x="645" y="174" font-size="40" fill="#B0A8D8" opacity="0.2" font-style="italic">z</text>
+  <!-- nightstand -->
+  <rect x="660" y="360" width="90" height="90" rx="6" fill="#1A1530"/>
+  <!-- small lamp on nightstand -->
+  <rect x="690" y="335" width="30" height="30" rx="4" fill="#2C2240"/>
+  <ellipse cx="705" cy="336" rx="25" ry="8" fill="#3D3458"/>
+  <circle cx="705" cy="332" r="12" fill="#FFF8E1" opacity="0.5"/>
+  <text x="400" y="558" text-anchor="middle" font-size="18" fill="#B0A8D8" letter-spacing="3" font-style="italic">Coaching · Sommeil Paisible</text>
+</svg>

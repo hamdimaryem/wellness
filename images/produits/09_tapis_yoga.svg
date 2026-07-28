@@ -1,0 +1,55 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8FBF8"/>
+      <stop offset="100%" stop-color="#E8F4E8"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C8A87A"/>
+      <stop offset="100%" stop-color="#A0804A"/>
+    </linearGradient>
+    <linearGradient id="mat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2E7D32"/>
+      <stop offset="100%" stop-color="#1B5E20"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- window light rays -->
+  <rect x="550" y="0" width="250" height="600" fill="#FFFDE7" opacity="0.12"/>
+  <!-- wooden floor planks -->
+  <rect x="0" y="350" width="800" height="250" fill="url(#floor)"/>
+  <line x1="0" y1="380" x2="800" y2="380" stroke="#8B6A3A" stroke-width="0.8" opacity="0.4"/>
+  <line x1="0" y1="415" x2="800" y2="415" stroke="#8B6A3A" stroke-width="0.8" opacity="0.4"/>
+  <line x1="0" y1="450" x2="800" y2="450" stroke="#8B6A3A" stroke-width="0.8" opacity="0.4"/>
+  <line x1="200" y1="350" x2="200" y2="600" stroke="#8B6A3A" stroke-width="0.5" opacity="0.3"/>
+  <line x1="400" y1="350" x2="400" y2="600" stroke="#8B6A3A" stroke-width="0.5" opacity="0.3"/>
+  <line x1="600" y1="350" x2="600" y2="600" stroke="#8B6A3A" stroke-width="0.5" opacity="0.3"/>
+  <!-- wall -->
+  <rect x="0" y="0" width="800" height="355" fill="#F5F9F5"/>
+  <!-- plants pot left -->
+  <rect x="60" y="270" width="70" height="80" rx="8" fill="#795548"/>
+  <ellipse cx="95" cy="268" rx="42" ry="12" fill="#6D4C41"/>
+  <path d="M95 240 Q70 200 50 160 Q80 180 95 220 Q110 180 140 160 Q120 200 95 240" fill="#388E3C"/>
+  <path d="M95 230 Q80 195 60 155" fill="none" stroke="#2E7D32" stroke-width="3"/>
+  <path d="M95 230 Q110 195 130 155" fill="none" stroke="#2E7D32" stroke-width="3"/>
+  <!-- plants pot right -->
+  <rect x="660" y="260" width="70" height="90" rx="8" fill="#795548"/>
+  <ellipse cx="695" cy="258" rx="42" ry="12" fill="#6D4C41"/>
+  <path d="M695 230 Q670 185 645 140 Q680 165 695 210 Q710 165 745 140 Q720 185 695 230" fill="#2E7D32"/>
+  <!-- yoga mat -->
+  <path d="M100 340 L700 340 L700 490 L100 490 Z" rx="12" fill="url(#mat)" opacity="0.95"/>
+  <!-- mat texture lines -->
+  <g opacity="0.12" stroke="white" stroke-width="1">
+    <line x1="100" y1="370" x2="700" y2="370"/>
+    <line x1="100" y1="400" x2="700" y2="400"/>
+    <line x1="100" y1="430" x2="700" y2="430"/>
+    <line x1="100" y1="460" x2="700" y2="460"/>
+  </g>
+  <!-- mat border lines -->
+  <rect x="100" y="340" width="600" height="150" rx="12" fill="none" stroke="#81C784" stroke-width="2"/>
+  <rect x="112" y="352" width="576" height="126" rx="8" fill="none" stroke="#A5D6A7" stroke-width="1" opacity="0.5"/>
+  <!-- mat rolled end visual -->
+  <ellipse cx="100" cy="415" rx="14" ry="75" fill="#1B5E20"/>
+  <ellipse cx="700" cy="415" rx="14" ry="75" fill="#1B5E20"/>
+  <text x="400" y="558" text-anchor="middle" font-size="18" fill="#1B5E20" letter-spacing="3" font-style="italic">Tapis de Yoga · Antidérapant</text>
+</svg>

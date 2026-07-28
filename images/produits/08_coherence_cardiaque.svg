@@ -1,0 +1,45 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8F0FF"/>
+      <stop offset="100%" stop-color="#EDE7F6"/>
+    </linearGradient>
+    <radialGradient id="heartglow" cx="50%" cy="45%" r="40%">
+      <stop offset="0%" stop-color="#CE93D8" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#F8F0FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#heartglow)"/>
+  <!-- wave visualization behind person -->
+  <path d="M80 290 Q140 240 200 290 Q260 340 320 290 Q380 240 440 290 Q500 340 560 290 Q620 240 680 290 Q740 340 800 290" fill="none" stroke="#CE93D8" stroke-width="3" opacity="0.4"/>
+  <path d="M80 310 Q140 260 200 310 Q260 360 320 310 Q380 260 440 310 Q500 360 560 310 Q620 260 680 310 Q740 360 800 310" fill="none" stroke="#B39DDB" stroke-width="2.5" opacity="0.3"/>
+  <path d="M80 330 Q140 280 200 330 Q260 380 320 330 Q380 280 440 330 Q500 380 560 330 Q620 280 680 330 Q740 380 800 330" fill="none" stroke="#9575CD" stroke-width="2" opacity="0.2"/>
+  <!-- floor -->
+  <rect x="0" y="420" width="800" height="180" fill="#EDE7F6" opacity="0.3"/>
+  <!-- cushion -->
+  <ellipse cx="400" cy="436" rx="90" ry="26" fill="#CE93D8" opacity="0.45"/>
+  <ellipse cx="400" cy="430" rx="84" ry="22" fill="#BA68C8" opacity="0.4"/>
+  <!-- person meditating -->
+  <ellipse cx="400" cy="415" rx="105" ry="34" fill="#FDBCB4" opacity="0.85"/>
+  <path d="M352 285 Q352 255 385 245 Q414 236 440 245 Q465 254 465 285 L456 408 L344 408 Z" fill="#FDBCB4" opacity="0.9"/>
+  <ellipse cx="408" cy="225" rx="44" ry="47" fill="#FDBCB4"/>
+  <ellipse cx="408" cy="208" rx="42" ry="30" fill="#3E2723"/>
+  <circle cx="408" cy="188" r="15" fill="#4E342E"/>
+  <!-- closed peaceful eyes -->
+  <path d="M391 232 Q399 228 407 232" fill="none" stroke="#8D4E35" stroke-width="2" stroke-linecap="round"/>
+  <path d="M411 232 Q419 228 427 232" fill="none" stroke="#8D4E35" stroke-width="2" stroke-linecap="round"/>
+  <path d="M396 244 Q408 250 420 244" fill="none" stroke="#8D4E35" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- heart glyph floating above -->
+  <path d="M408 155 C408 148 398 140 392 148 C386 140 376 148 376 155 C376 162 392 175 408 185 C424 175 440 162 440 155 C440 148 430 140 424 148 C418 140 408 148 408 155 Z" fill="#E040FB" opacity="0.55"/>
+  <!-- pulsing rings from heart -->
+  <circle cx="408" cy="162" r="25" fill="none" stroke="#E040FB" stroke-width="1.5" opacity="0.3"/>
+  <circle cx="408" cy="162" r="40" fill="none" stroke="#CE93D8" stroke-width="1" opacity="0.2"/>
+  <circle cx="408" cy="162" r="55" fill="none" stroke="#BA68C8" stroke-width="0.8" opacity="0.12"/>
+  <!-- arms mudra -->
+  <path d="M352 305 Q308 328 280 378" stroke="#FDBCB4" stroke-width="20" stroke-linecap="round" fill="none"/>
+  <path d="M465 305 Q512 328 540 378" stroke="#FDBCB4" stroke-width="20" stroke-linecap="round" fill="none"/>
+  <ellipse cx="278" cy="382" rx="20" ry="13" fill="#F0A888"/>
+  <ellipse cx="542" cy="382" rx="20" ry="13" fill="#F0A888"/>
+  <text x="400" y="556" text-anchor="middle" font-size="18" fill="#6A1B9A" letter-spacing="3" font-style="italic">Coaching · Cohérence Cardiaque</text>
+</svg>

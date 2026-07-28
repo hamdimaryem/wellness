@@ -1,0 +1,56 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F0F8FF"/>
+      <stop offset="100%" stop-color="#E3F2FD"/>
+    </linearGradient>
+    <radialGradient id="window" cx="80%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#FFFDE7" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#F0F8FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#window)"/>
+  <!-- window frame right -->
+  <rect x="560" y="80" width="200" height="380" rx="8" fill="none" stroke="#BBDEFB" stroke-width="3"/>
+  <line x1="660" y1="80" x2="660" y2="460" stroke="#BBDEFB" stroke-width="2" opacity="0.6"/>
+  <line x1="560" y1="270" x2="760" y2="270" stroke="#BBDEFB" stroke-width="2" opacity="0.6"/>
+  <!-- window view (sky) -->
+  <rect x="563" y="83" width="194" height="374" rx="6" fill="#E1F5FE" opacity="0.5"/>
+  <!-- clouds in window -->
+  <ellipse cx="610" cy="150" rx="35" ry="18" fill="white" opacity="0.7"/>
+  <ellipse cx="635" cy="142" rx="28" ry="15" fill="white" opacity="0.7"/>
+  <ellipse cx="705" cy="200" rx="30" ry="16" fill="white" opacity="0.6"/>
+  <!-- tree silhouette in window -->
+  <rect x="635" y="320" width="10" height="144" fill="#8D6E63" opacity="0.4"/>
+  <ellipse cx="640" cy="300" rx="40" ry="50" fill="#388E3C" opacity="0.3"/>
+  <!-- floor -->
+  <rect x="0" y="420" width="800" height="180" fill="#E3F2FD" opacity="0.25"/>
+  <!-- cushion/pillow -->
+  <ellipse cx="280" cy="435" rx="85" ry="24" fill="#64B5F6" opacity="0.5"/>
+  <ellipse cx="280" cy="430" rx="80" ry="20" fill="#90CAF9" opacity="0.6"/>
+  <!-- person sitting meditation near window, breathing -->
+  <!-- crossed legs -->
+  <ellipse cx="280" cy="415" rx="100" ry="32" fill="#FDBCB4" opacity="0.85"/>
+  <!-- torso -->
+  <path d="M234 290 Q234 258 268 248 Q295 240 318 248 Q342 258 342 290 L335 410 L225 410 Z" fill="#FDBCB4" opacity="0.9"/>
+  <!-- head -->
+  <ellipse cx="283" cy="233" rx="42" ry="45" fill="#FDBCB4"/>
+  <!-- hair tied back -->
+  <ellipse cx="283" cy="215" rx="40" ry="28" fill="#4E342E"/>
+  <circle cx="308" cy="228" r="8" fill="#3E2723"/>
+  <!-- face - breathing, calm eyes closed -->
+  <path d="M267 242 Q275 239 283 242" fill="none" stroke="#8D4E35" stroke-width="2" stroke-linecap="round"/>
+  <path d="M285 242 Q293 239 301 242" fill="none" stroke="#8D4E35" stroke-width="2" stroke-linecap="round"/>
+  <path d="M272 255 Q283 262 294 255" fill="none" stroke="#8D4E35" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- breath visualization - expanding circles -->
+  <circle cx="283" cy="245" r="60" fill="none" stroke="#64B5F6" stroke-width="1.5" opacity="0.3"/>
+  <circle cx="283" cy="245" r="90" fill="none" stroke="#64B5F6" stroke-width="1" opacity="0.2"/>
+  <circle cx="283" cy="245" r="120" fill="none" stroke="#64B5F6" stroke-width="0.8" opacity="0.12"/>
+  <!-- arms in lap -->
+  <path d="M234 310 Q190 338 170 385" stroke="#FDBCB4" stroke-width="20" stroke-linecap="round" fill="none"/>
+  <path d="M342 310 Q380 338 392 385" stroke="#FDBCB4" stroke-width="20" stroke-linecap="round" fill="none"/>
+  <ellipse cx="168" cy="390" rx="20" ry="13" fill="#F0A888"/>
+  <ellipse cx="394" cy="390" rx="20" ry="13" fill="#F0A888"/>
+  <text x="400" y="556" text-anchor="middle" font-size="18" fill="#0D47A1" letter-spacing="3" font-style="italic">Coaching · Respiration Anti-Stress</text>
+</svg>

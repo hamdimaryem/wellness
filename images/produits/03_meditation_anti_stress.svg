@@ -1,0 +1,59 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFDE7"/>
+      <stop offset="100%" stop-color="#FFF8D6"/>
+    </linearGradient>
+    <radialGradient id="goldglow" cx="50%" cy="45%" r="45%">
+      <stop offset="0%" stop-color="#FFF8C4" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FFFDE7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD54F" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#FFD54F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#goldglow)"/>
+  <!-- blurred nature background circles -->
+  <circle cx="200" cy="300" r="150" fill="#C8E6C9" opacity="0.15"/>
+  <circle cx="600" cy="250" r="120" fill="#B3E5FC" opacity="0.12"/>
+  <circle cx="400" cy="450" r="200" fill="#FFF9C4" opacity="0.25"/>
+  <!-- aura around person -->
+  <circle cx="400" cy="300" r="220" fill="url(#aura)"/>
+  <circle cx="400" cy="300" r="160" fill="#FFF8C4" opacity="0.08"/>
+  <!-- floor -->
+  <rect x="0" y="420" width="800" height="180" fill="#F5E6C8" opacity="0.3"/>
+  <!-- cushion -->
+  <ellipse cx="400" cy="430" rx="100" ry="28" fill="#E8C068"/>
+  <ellipse cx="400" cy="424" rx="96" ry="24" fill="#F5D080"/>
+  <!-- person sitting meditation -->
+  <!-- crossed legs -->
+  <ellipse cx="400" cy="405" rx="110" ry="35" fill="#F0D8C0" opacity="0.9"/>
+  <!-- torso -->
+  <path d="M352 280 Q352 250 385 240 Q415 233 440 240 Q468 250 468 280 L458 400 L342 400 Z" fill="#F0D8C0" opacity="0.9"/>
+  <!-- head -->
+  <ellipse cx="410" cy="220" rx="44" ry="47" fill="#F0D8C0"/>
+  <!-- hair bun -->
+  <ellipse cx="410" cy="198" rx="42" ry="30" fill="#3E2723"/>
+  <circle cx="410" cy="178" r="16" fill="#4E342E"/>
+  <!-- closed eyes peaceful -->
+  <path d="M393 223 Q401 220 409 223" fill="none" stroke="#8D4E35" stroke-width="2" stroke-linecap="round"/>
+  <path d="M413 223 Q421 220 429 223" fill="none" stroke="#8D4E35" stroke-width="2" stroke-linecap="round"/>
+  <!-- gentle smile -->
+  <path d="M398 234 Q410 241 422 234" fill="none" stroke="#8D4E35" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- arms mudra -->
+  <path d="M352 300 Q310 320 280 370" stroke="#F0D8C0" stroke-width="22" stroke-linecap="round" fill="none"/>
+  <path d="M468 300 Q510 320 530 370" stroke="#F0D8C0" stroke-width="22" stroke-linecap="round" fill="none"/>
+  <ellipse cx="278" cy="375" rx="22" ry="15" fill="#E8C8A0"/>
+  <ellipse cx="532" cy="375" rx="22" ry="15" fill="#E8C8A0"/>
+  <!-- golden light rays -->
+  <g opacity="0.12" stroke="#FFD54F" stroke-width="1.5">
+    <line x1="400" y1="80" x2="400" y2="180"/>
+    <line x1="440" y1="90" x2="425" y2="185"/>
+    <line x1="360" y1="90" x2="375" y2="185"/>
+    <line x1="480" y1="115" x2="450" y2="195"/>
+    <line x1="320" y1="115" x2="350" y2="195"/>
+  </g>
+  <text x="400" y="556" text-anchor="middle" font-size="18" fill="#7D4E00" letter-spacing="3" font-style="italic">Coaching · Méditation Anti-Stress</text>
+</svg>

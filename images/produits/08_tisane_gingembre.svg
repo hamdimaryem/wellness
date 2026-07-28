@@ -1,0 +1,56 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFDE7"/>
+      <stop offset="100%" stop-color="#FFF8D6"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="80%" cy="10%" r="40%">
+      <stop offset="0%" stop-color="#FFF9C4" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FFFDE7" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mug" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F5E6C8"/>
+      <stop offset="50%" stop-color="#FDFAF2"/>
+      <stop offset="100%" stop-color="#F0D9AA"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#sun)"/>
+  <rect x="0" y="420" width="800" height="180" fill="#FDE8A0" opacity="0.3"/>
+  <!-- ginger roots -->
+  <g opacity="0.8">
+    <path d="M120 380 Q160 350 200 370 Q230 385 220 410 Q210 430 170 425 Q130 420 120 395 Z" fill="#D4A017"/>
+    <path d="M140 360 Q155 340 168 355 Q180 365 172 380 Q162 388 148 380 Z" fill="#C8960F"/>
+    <path d="M195 355 Q210 335 225 350 Q238 365 228 382 Q215 392 200 382 Z" fill="#D4A017"/>
+    <path d="M560 390 Q600 360 640 380 Q670 395 660 420 Q650 440 610 435 Q570 430 560 405 Z" fill="#D4A017"/>
+    <path d="M585 370 Q600 350 612 365 Q625 378 617 393 Q607 400 592 392 Z" fill="#C8960F"/>
+  </g>
+  <!-- lemon slices -->
+  <g opacity="0.65">
+    <circle cx="660" cy="380" r="38" fill="#FFF176" stroke="#F9A825" stroke-width="2"/>
+    <circle cx="660" cy="380" r="28" fill="#FFF9C4"/>
+    <line x1="660" y1="342" x2="660" y2="418" stroke="#F9A825" stroke-width="1"/>
+    <line x1="622" y1="380" x2="698" y2="380" stroke="#F9A825" stroke-width="1"/>
+  </g>
+  <!-- ceramic mug -->
+  <rect x="330" y="240" width="150" height="200" rx="16" fill="url(#mug)" stroke="#E8C97A" stroke-width="1.5"/>
+  <!-- tea liquid -->
+  <rect x="336" y="295" width="138" height="140" rx="8" fill="#D4A017" opacity="0.55"/>
+  <ellipse cx="405" cy="248" rx="71" ry="16" fill="#F5EDD8"/>
+  <!-- steam -->
+  <g opacity="0.45" fill="none" stroke="#D4A017" stroke-width="2.5" stroke-linecap="round">
+    <path d="M370 228 Q362 200 370 176 Q378 152 370 132"/>
+    <path d="M405 222 Q397 193 405 168 Q413 143 405 122"/>
+    <path d="M440 228 Q448 200 440 176 Q432 152 440 132"/>
+  </g>
+  <!-- handle -->
+  <path d="M478 290 Q520 290 520 330 Q520 370 478 370" fill="none" stroke="#E8C97A" stroke-width="12" stroke-linecap="round"/>
+  <!-- ginger slice decoration on mug -->
+  <circle cx="405" cy="320" r="30" fill="#FFF176" stroke="#F9A825" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="405" cy="320" r="22" fill="#FFF9C4" opacity="0.6"/>
+  <line x1="405" y1="290" x2="405" y2="350" stroke="#F9A825" stroke-width="1" opacity="0.6"/>
+  <line x1="375" y1="320" x2="435" y2="320" stroke="#F9A825" stroke-width="1" opacity="0.6"/>
+  <!-- saucer -->
+  <ellipse cx="405" cy="446" rx="95" ry="18" fill="#EDD9A3" stroke="#E8C97A" stroke-width="1"/>
+  <text x="400" y="556" text-anchor="middle" font-size="18" fill="#7D4E00" letter-spacing="3" font-style="italic">Tisane Énergie · Gingembre</text>
+</svg>

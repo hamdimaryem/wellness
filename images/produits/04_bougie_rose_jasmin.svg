@@ -1,0 +1,58 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FDF2F8"/>
+      <stop offset="100%" stop-color="#F9D6E8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#FFF3CD" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FDF2F8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wax" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F5E6F0"/>
+      <stop offset="50%" stop-color="#FDFBFF"/>
+      <stop offset="100%" stop-color="#EDD5E8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#glow)"/>
+  <!-- surface/table -->
+  <rect x="0" y="430" width="800" height="170" fill="#F2D4E3" opacity="0.5"/>
+  <!-- petals scattered -->
+  <g opacity="0.85">
+    <ellipse cx="160" cy="400" rx="28" ry="16" fill="#E91E8C" transform="rotate(-25,160,400)"/>
+    <ellipse cx="200" cy="440" rx="22" ry="12" fill="#F48FB1" transform="rotate(10,200,440)"/>
+    <ellipse cx="140" cy="460" rx="25" ry="14" fill="#E91E8C" transform="rotate(40,140,460)"/>
+    <ellipse cx="600" cy="420" rx="28" ry="16" fill="#CE1483" transform="rotate(20,600,420)"/>
+    <ellipse cx="640" cy="455" rx="22" ry="12" fill="#F48FB1" transform="rotate(-15,640,455)"/>
+    <ellipse cx="580" cy="470" rx="25" ry="14" fill="#E91E8C" transform="rotate(-40,580,470)"/>
+    <ellipse cx="300" cy="490" rx="20" ry="11" fill="#F06292" transform="rotate(5,300,490)"/>
+    <ellipse cx="500" cy="480" rx="20" ry="11" fill="#AD1457" transform="rotate(-20,500,480)"/>
+    <!-- jasmine small white flowers -->
+    <circle cx="260" cy="410" r="10" fill="white" opacity="0.9"/>
+    <circle cx="270" cy="420" r="7" fill="white" opacity="0.9"/>
+    <circle cx="540" cy="415" r="10" fill="white" opacity="0.9"/>
+    <circle cx="525" cy="425" r="7" fill="white" opacity="0.9"/>
+  </g>
+  <!-- candle jar -->
+  <rect x="320" y="260" width="160" height="180" rx="14" fill="url(#wax)" stroke="#E8C4D8" stroke-width="1.5"/>
+  <!-- wax surface -->
+  <ellipse cx="400" cy="268" rx="76" ry="14" fill="#F9EEF5"/>
+  <!-- wick -->
+  <rect x="398" y="218" width="4" height="52" rx="2" fill="#5D4037"/>
+  <!-- flame -->
+  <ellipse cx="400" cy="205" rx="10" ry="18" fill="#FF8F00" opacity="0.95"/>
+  <ellipse cx="400" cy="210" rx="6" ry="10" fill="#FFD54F"/>
+  <ellipse cx="400" cy="215" rx="3" ry="5" fill="white" opacity="0.6"/>
+  <!-- glow around flame -->
+  <ellipse cx="400" cy="210" rx="30" ry="40" fill="#FFF8E1" opacity="0.3"/>
+  <!-- jar label -->
+  <rect x="335" y="300" width="130" height="80" rx="6" fill="white" opacity="0.9"/>
+  <text x="400" y="325" text-anchor="middle" font-size="10" fill="#880E4F" font-weight="bold" letter-spacing="2">ROSE &amp; JASMIN</text>
+  <text x="400" y="342" text-anchor="middle" font-size="8" fill="#C2185B" letter-spacing="1">BOUGIE NATURELLE</text>
+  <line x1="350" y1="350" x2="450" y2="350" stroke="#F8BBD9" stroke-width="0.5"/>
+  <text x="400" y="365" text-anchor="middle" font-size="7.5" fill="#E91E8C">CIRE VÉGÉTALE · 200g</text>
+  <!-- jar shine -->
+  <rect x="332" y="275" width="12" height="150" rx="6" fill="white" opacity="0.22"/>
+  <text x="400" y="556" text-anchor="middle" font-size="18" fill="#880E4F" letter-spacing="3" font-style="italic">Bougie · Rose &amp; Jasmin</text>
+</svg>

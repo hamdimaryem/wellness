@@ -1,0 +1,56 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F0FAF5"/>
+      <stop offset="100%" stop-color="#D5EEE2"/>
+    </linearGradient>
+    <linearGradient id="btl" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#E8F5EE"/>
+      <stop offset="45%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#C8E6D5"/>
+    </linearGradient>
+    <linearGradient id="liq" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#27AE60"/>
+      <stop offset="100%" stop-color="#145A32"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- background circle glow -->
+  <circle cx="400" cy="280" r="260" fill="#C8E6D5" opacity="0.3"/>
+  <!-- eucalyptus leaves left -->
+  <g transform="translate(80,180)" opacity="0.9">
+    <ellipse cx="0" cy="0" rx="45" ry="20" fill="#52BE80" transform="rotate(-30)"/>
+    <ellipse cx="60" cy="-30" rx="45" ry="20" fill="#45B39D" transform="rotate(-50)"/>
+    <ellipse cx="30" cy="40" rx="45" ry="20" fill="#58D68D" transform="rotate(-10)"/>
+    <ellipse cx="100" cy="10" rx="45" ry="20" fill="#52BE80" transform="rotate(-40)"/>
+    <line x1="-40" y1="20" x2="120" y2="-20" stroke="#27AE60" stroke-width="2" opacity="0.5"/>
+  </g>
+  <!-- eucalyptus leaves right -->
+  <g transform="translate(620,200)" opacity="0.9">
+    <ellipse cx="0" cy="0" rx="45" ry="20" fill="#52BE80" transform="rotate(30)"/>
+    <ellipse cx="-60" cy="-30" rx="45" ry="20" fill="#45B39D" transform="rotate(50)"/>
+    <ellipse cx="-30" cy="40" rx="45" ry="20" fill="#58D68D" transform="rotate(10)"/>
+    <ellipse cx="-100" cy="10" rx="45" ry="20" fill="#52BE80" transform="rotate(40)"/>
+  </g>
+  <!-- steam wisps -->
+  <g opacity="0.35" fill="none" stroke="#A9DFBF" stroke-width="2.5">
+    <path d="M360 90 Q350 60 360 30 Q370 0 360 -20" stroke-linecap="round"/>
+    <path d="M400 100 Q390 65 400 35 Q410 5 400 -15" stroke-linecap="round"/>
+    <path d="M440 90 Q450 60 440 30 Q430 0 440 -20" stroke-linecap="round"/>
+  </g>
+  <!-- bottle -->
+  <rect x="335" y="140" width="130" height="250" rx="14" fill="url(#btl)" stroke="#A9DFBF" stroke-width="1.5"/>
+  <rect x="341" y="200" width="118" height="185" rx="8" fill="url(#liq)" opacity="0.7"/>
+  <rect x="368" y="110" width="64" height="36" rx="7" fill="#D5F5E3" stroke="#A9DFBF" stroke-width="1"/>
+  <rect x="361" y="88" width="78" height="26" rx="9" fill="#145A32"/>
+  <rect x="393" y="68" width="14" height="24" rx="4" fill="#0E4D2A"/>
+  <!-- label -->
+  <rect x="348" y="218" width="104" height="76" rx="5" fill="white" opacity="0.92"/>
+  <text x="400" y="240" text-anchor="middle" font-size="10" fill="#145A32" font-weight="bold" letter-spacing="2">EUCALYPTUS</text>
+  <text x="400" y="257" text-anchor="middle" font-size="8" fill="#27AE60" letter-spacing="1">HUILE ESSENTIELLE</text>
+  <line x1="362" y1="265" x2="438" y2="265" stroke="#A9DFBF" stroke-width="0.5"/>
+  <text x="400" y="280" text-anchor="middle" font-size="7.5" fill="#52BE80">BIO · PURE · NATURELLE</text>
+  <!-- highlight -->
+  <rect x="348" y="150" width="16" height="210" rx="8" fill="white" opacity="0.28"/>
+  <text x="400" y="558" text-anchor="middle" font-size="18" fill="#145A32" letter-spacing="3" font-style="italic">Huile Essentielle · Eucalyptus</text>
+</svg>

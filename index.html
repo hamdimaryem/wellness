@@ -1,0 +1,1257 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wellness·tn — Bien-être & Boutique Naturelle · Tunis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== PROMO BANNER ===== -->
+<div class="promo-banner" id="promoBanner">
+  <i class="fa-solid fa-leaf" style="margin-right:8px;"></i>
+  Prenez soin de vous chaque jour 🌿 
+  <strong>Conseils bien-être, séances relaxantes et produits naturels disponibles 7j/7</strong>
+  <a href="#" onclick="AppRouter.go('coachings');return false;">Découvrir maintenant →</a>
+  <button class="close-promo" onclick="document.getElementById('promoBanner').style.display='none'" aria-label="Fermer">✕</button>
+</div>
+
+<!-- ===== NEWSLETTER POP-UP ===== -->
+<div id="newsletter-popup" role="dialog" aria-modal="true" aria-label="Newsletter">
+  <div class="newsletter-card">
+    <div class="newsletter-visual" style="position:relative;">
+      <button class="newsletter-close" onclick="closeNewsletter()" aria-label="Fermer">✕</button>
+      <div style="font-size:48px;margin-bottom:12px;">🌿</div>
+      <h3>Rejoignez notre communauté bien-être</h3>
+      <p>Recevez nos conseils, recettes naturelles et offres exclusives chaque semaine.</p>
+    </div>
+    <div class="newsletter-form-area">
+      <div class="field">
+        <label for="nlEmail">Votre adresse email</label>
+        <input type="email" id="nlEmail" placeholder="email@exemple.com">
+      </div>
+      <button class="btn btn-primary btn-full" onclick="subscribeNewsletter()">
+        <i class="fa-solid fa-envelope"></i> S'abonner gratuitement
+      </button>
+      <div class="newsletter-perks">
+        <span class="newsletter-perk"><i class="fa-solid fa-check-circle"></i> Pas de spam</span>
+        <span class="newsletter-perk"><i class="fa-solid fa-check-circle"></i> Désabonnement facile</span>
+        <span class="newsletter-perk"><i class="fa-solid fa-check-circle"></i> Offres exclusives</span>
+      </div>
+      <p style="text-align:center;margin-top:16px;font-size:12px;">
+        <a href="#" onclick="closeNewsletter();return false;" style="color:var(--muted);text-decoration:underline;">Non merci, peut-être plus tard</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== VIDEO POP-UP ===== -->
+<div id="video-popup" role="dialog" aria-modal="true" aria-label="Vidéo bien-être">
+  <div class="video-popup-inner">
+    <button class="video-popup-close" onclick="closeVideoPopup()"><i class="fa-solid fa-xmark"></i> Fermer</button>
+    <iframe id="videoPopupFrame" src="" title="Vidéo bien-être" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- ===== NAV TEMPLATE ===== -->
+<template id="mainNav">
+  <nav class="nav">
+    <div class="container nav-inner">
+
+      <!-- Logo -->
+      <div class="logo" onclick="AppRouter.go('home')">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10"/>
+            <path d="M12 2C6.48 2 2 6.48 2 12a10 10 0 0 0 10 10"/>
+            <path d="M12 8c0 4-4 6-4 6s1-4 4-6z"/>
+            <path d="M12 8c0 4 4 6 4 6s-1-4-4-6z"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-name">Wellness<span>·tn</span></span>
+          <span class="logo-sub">Bien-être & Nature</span>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="nav-links">
+        <a href="#" onclick="AppRouter.go('coachings');return false;">
+          <i class="fa-solid fa-spa"></i> Coachings
+        </a>
+
+        <a href="#" onclick="AppRouter.go('produits');return false;">
+          <i class="fa-solid fa-bag-shopping"></i> Boutique
+        </a>
+
+        <a href="#" onclick="AppRouter.go('account');return false;" data-auth="true" style="display:none">
+          <i class="fa-solid fa-user"></i> Mon compte
+        </a>
+
+        <a href="#" onclick="AppRouter.go('admin');return false;" data-role="admin" style="display:none">
+          <i class="fa-solid fa-gear"></i> Admin
+        </a>
+      </div>
+
+      <!-- Actions -->
+      <div class="nav-actions">
+
+        <span class="nav-user-name" id="navUserName" data-auth="true" style="display:none"></span>
+
+        <!-- CART BUTTON FIXED -->
+        <button class="cart-pill" onclick="AppRouter.go('cart')">
+          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+          <span>Panier</span>
+        </button>
+
+        <button class="btn btn-outline btn-sm" id="navBtnLogin" onclick="AppRouter.go('auth')">
+          <i class="fa-solid fa-right-to-bracket"></i> Se connecter
+        </button>
+
+        <button class="btn btn-danger btn-sm" id="navBtnLogout" style="display:none" onclick="App.handleLogout()">
+          <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
+        </button>
+
+      </div>
+    </div>
+  </nav>
+</template>
+
+<!-- ===== PAGE HOME ===== -->
+<div id="page-home" class="page active">
+  <div data-nav></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow" style="color:rgba(255,255,255,.75);">
+        <i class="fa-solid fa-location-dot"></i> Centre de bien-être · Tunis
+      </span>
+<h1>Centre de bien-être, coaching et accompagnement naturel pour votre équilibre.</h1>
+
+<p>
+Un espace dédié à la relaxation, au yoga, à la méditation, à la nutrition et au développement personnel,
+avec des coachs qualifiés et une sélection de produits naturels.
+</p>
+
+<div class="hero-badges">
+  <span class="hero-badge"><i class="fa-solid fa-leaf" aria-hidden="true"></i> Produits naturels</span>
+  <span class="hero-badge"><i class="fa-solid fa-user-check" aria-hidden="true"></i> Coachs qualifiés</span>
+  <span class="hero-badge"><i class="fa-solid fa-laptop" aria-hidden="true"></i> Séances en ligne</span>
+  <span class="hero-badge">
+    <i class="fa-solid fa-heart" aria-hidden="true"></i> Bien-être & sérénité
+  </span>
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <button class="btn btn-primary" onclick="AppRouter.go('coachings')">
+          <i class="fa-solid fa-calendar-check"></i> Voir les coachings
+        </button>
+        <button class="btn btn-light" onclick="AppRouter.go('produits')">
+          <i class="fa-solid fa-bag-shopping"></i> Découvrir la boutique
+        </button>
+      </div>
+      <!-- Stats panel -->
+     
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section section-cream">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:40px;">
+        <span class="eyebrow">Nos services</span>
+        <h2>Tout pour votre bien-être</h2>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon"><i class="fa-solid fa-spa" aria-hidden="true"></i></div>
+          <h4>Yoga &amp; Méditation</h4>
+          <p>Séances douces pour l'équilibre du corps et de l'esprit.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fa-solid fa-seedling" aria-hidden="true"></i></div>
+          <h4>Soins naturels</h4>
+          <p>Produits sélectionnés, 100 % naturels et éco-responsables.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fa-solid fa-hands-holding-circle" aria-hidden="true"></i></div>
+          <h4>Coaching individuel</h4>
+          <p>Un accompagnement personnalisé adapté à vos besoins.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i></div>
+          <h4>Livraison rapide</h4>
+          <p>Commande en ligne, livraison à domicile dans 24-48h.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coachings section -->
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Séances phares</span>
+      <h2>Réserver une séance</h2>
+      <p style="margin-bottom:32px;max-width:560px">Choisissez parmi nos coachings en ligne et en présentiel, et réservez votre créneau en quelques clics.</p>
+      <div class="grid-3" id="homeCoachings"></div>
+      <div style="text-align:center;margin-top:36px">
+        <button class="btn btn-outline" onclick="AppRouter.go('coachings')">
+          Voir tous les coachings <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products section -->
+  <section class="section section-rose">
+    <div class="container">
+      <span class="eyebrow">Boutique</span>
+      <h2>Produits bien-être sélectionnés</h2>
+      <p style="margin-bottom:32px;max-width:560px">Huiles essentielles, tisanes, accessoires et soins — tout ce dont vous avez besoin pour votre rituel bien-être.</p>
+      <div class="grid-4" id="homeProducts"></div>
+      <div style="text-align:center;margin-top:36px">
+        <button class="btn btn-primary" onclick="AppRouter.go('produits')">
+          Voir toute la boutique <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conseils Bien-être section -->
+<section class="section section-cream">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px;">
+      <span class="eyebrow">Conseils bien-être</span>
+      <h2>Prenez soin de votre esprit & de votre corps</h2>
+      <p style="max-width:620px;margin:0 auto;">
+        Découvrez des conseils simples et naturels pour améliorer votre équilibre mental, réduire le stress et retrouver une énergie positive au quotidien.
+      </p>
+    </div>
+
+    <div class="grid-4">
+
+      <!-- Card 1 -->
+      <div class="coach-card">
+        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" alt="Respiration profonde" loading="lazy">
+        <div class="coach-card-body">
+          <h4>Respiration profonde</h4>
+          <span class="coach-speciality">
+            <i class="fa-solid fa-wind" style="margin-right:4px;"></i>Relaxation & Anti-stress
+          </span>
+          <p style="font-size:13px;margin-top:8px;">
+            Prenez 5 minutes par jour pour pratiquer la respiration consciente et calmer votre esprit.
+          </p>
+         
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="coach-card">
+        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80" alt="Nutrition saine" loading="lazy">
+        <div class="coach-card-body">
+          <h4>Nutrition équilibrée</h4>
+          <span class="coach-speciality">
+            <i class="fa-solid fa-apple-whole" style="margin-right:4px;"></i>Healthy Lifestyle
+          </span>
+          <p style="font-size:13px;margin-top:8px;">
+            Une alimentation naturelle et riche en vitamines aide votre corps à rester énergique et apaisé.
+          </p>
+         
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="coach-card">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80" alt="Mental health" loading="lazy">
+        <div class="coach-card-body">
+          <h4>Santé mentale</h4>
+          <span class="coach-speciality" style="background:#EFE7FF;color:#7A52B3;">
+            <i class="fa-solid fa-brain" style="margin-right:4px;"></i>Mental Health
+          </span>
+          <p style="font-size:13px;margin-top:8px;">
+            Accordez-vous des pauses digitales et des moments de calme pour protéger votre santé mentale.
+          </p>
+         
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="coach-card">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Sommeil réparateur" loading="lazy">
+        <div class="coach-card-body">
+          <h4>Sommeil réparateur</h4>
+          <span class="coach-speciality" style="background:#E8F4FF;color:#3A6EA5;">
+            <i class="fa-solid fa-moon" style="margin-right:4px;"></i>Sleep & Recovery
+          </span>
+          <p style="font-size:13px;margin-top:8px;">
+            Dormir suffisamment améliore votre humeur, votre concentration et votre bien-être général.
+          </p>
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Video section -->
+  <section class="video-section">
+    <div class="container">
+      <span class="eyebrow">Vidéos &amp; Ressources</span>
+      <h2>Découvrez nos séances</h2>
+      <p>Aperçus de nos coachings, méditations guidées et conseils bien-être en vidéo.</p>
+      <div class="video-grid">
+        <div class="video-thumb" onclick="openVideoPopup('inpok4MKVLM')">
+          <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=75" alt="Méditation guidée" loading="lazy">
+          <div class="video-play-btn">
+            <span><i class="fa-solid fa-play" style="margin-left:3px;"></i></span>
+          </div>
+          <span class="video-label"><i class="fa-solid fa-clock" style="margin-right:5px;"></i>20 min · Méditation guidée</span>
+        </div>
+        <div class="video-thumb" onclick="openVideoPopup('sTANio_2E0Q')">
+          <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?auto=format&fit=crop&w=800&q=75" alt="Yoga du matin" loading="lazy">
+          <div class="video-play-btn">
+            <span><i class="fa-solid fa-play" style="margin-left:3px;"></i></span>
+          </div>
+          <span class="video-label"><i class="fa-solid fa-clock" style="margin-right:5px;"></i>30 min · Yoga du matin</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Founders message section -->
+<section class="section section-cream">
+  <div class="container">
+
+    <div style="text-align:center;margin-bottom:40px;">
+      <span class="eyebrow">À propos</span>
+      <h2>Mot des créatrices</h2>
+      <p style="max-width:600px;margin:0 auto;">
+        Nous sommes les co-créatrices de Wellness·tn, une plateforme dédiée au bien-être, à l’équilibre et à l’accompagnement personnalisé.
+      </p>
+    </div>
+
+    <div class="grid-2" style="gap:40px;">
+
+      <!-- Mariem Hamdi -->
+      <div class="testimonial-card">
+
+        <div class="testimonial-avatar-initials" style="font-size:32px;width:60px;height:60px;display:flex;align-items:center;justify-content:center;margin-bottom:15px;">
+          MH
+        </div>
+
+        <div class="testimonial-text">
+          "Nous avons créé cette plateforme avec une vision simple : aider les personnes à améliorer leur bien-être
+          à travers des outils accessibles, modernes et humains."
+        </div>
+
+        <div class="testimonial-author">
+          <div class="testimonial-avatar-initials">MH</div>
+          <div>
+            <div class="testimonial-author-name">Mariem Hamdi</div>
+            <div class="testimonial-author-role">Co-créatrice · Wellness·tn</div>
+            <a href="https://www.linkedin.com/in/mariem-hamdi-945234253" target="_blank" style="font-size:14px;color:#0077b5;">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Thouraya Boujeh -->
+      <div class="testimonial-card">
+
+        <div class="testimonial-avatar-initials" style="font-size:32px;width:60px;height:60px;display:flex;align-items:center;justify-content:center;margin-bottom:15px;">
+          TB
+        </div>
+
+        <div class="testimonial-text">
+          "Notre objectif est de rendre le bien-être simple, structuré et accessible à tous,
+          en proposant une expérience claire et motivante au quotidien."
+        </div>
+
+        <div class="testimonial-author">
+          <div class="testimonial-avatar-initials">TB</div>
+          <div>
+            <div class="testimonial-author-name">Thouraya Boujeh</div>
+            <div class="testimonial-author-role">Co-créatrice · Wellness·tn</div>
+            <a href="https://www.linkedin.com/in/thouraya-boujeh/" target="_blank" style="font-size:14px;color:#0077b5;">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="grid-3" style="gap:40px;">
+        <div>
+          <!-- Logo in footer -->
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+            <div style="width:38px;height:38px;background:linear-gradient(135deg,var(--rose-dark),var(--sage-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:18px;">
+              <i class="fa-solid fa-leaf"></i>
+            </div>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--rose);">Wellness<span style="color:#3D6B42;">·tn</span></span>
+          </div>
+          <p>Un espace unique pour réserver vos séances, suivre vos commandes et découvrir les produits du centre.</p>
+          <div class="social-icons">
+            <a class="social-icon instagram" href="#" title="Instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a class="social-icon facebook" href="#" title="Facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a class="social-icon tiktok" href="#" title="TikTok" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a class="social-icon youtube" href="#" title="YouTube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            
+          </div>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <p>
+            <i class="fa-solid fa-envelope" style="color:var(--rose);margin-right:8px;"></i>contact@wellness.tn<br>
+            <i class="fa-solid fa-phone" style="color:var(--rose);margin-right:8px;"></i>+216 71 000 000<br>
+            <i class="fa-solid fa-clock" style="color:var(--rose);margin-right:8px;"></i>Lun – Sam · 8h – 20h
+          </p>
+          <div style="margin-top:16px;">
+            <a href="https://wa.me/21671000000" class="btn btn-sage btn-sm" style="display:inline-flex;">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3>Adresse</h3>
+          <p>
+            <i class="fa-solid fa-location-dot" style="color:var(--rose);margin-right:8px;"></i>Avenue Habib Bourguiba, Tunis<br>
+            <i class="fa-solid fa-car" style="color:var(--rose);margin-right:8px;"></i>Parking disponible<br>
+            <i class="fa-solid fa-bus" style="color:var(--rose);margin-right:8px;"></i>Métro ligne 1 – Arrêt République
+          </p>
+          <!-- Mini map placeholder -->
+          <div style="margin-top:16px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.10);">
+            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=400&h=160&q=60" alt="Localisation Tunis" style="width:100%;height:100px;object-fit:cover;opacity:.7;" loading="lazy">
+          </div>
+        </div>
+      </div>
+      <div class="footer-line">
+        <span>© 2026 Wellness·tn — Tous droits réservés</span>
+        <span style="display:flex;align-items:center;gap:8px;">
+          <i class="fa-solid fa-heart" style="color:var(--rose);font-size:12px;"></i> Créé à Tunis avec passion
+        </span>
+      </div>
+    </div>
+  </footer>
+</div><!-- /page-home -->
+
+<!-- ===== PAGE COACHINGS ===== -->
+<div id="page-coachings" class="page">
+  <div data-nav></div>
+  <header class="page-head">
+    <div class="container">
+      <span class="eyebrow">Catalogue</span>
+      <h1>Coachings du centre</h1>
+      <p>Filtrez par catégorie, coach ou type de séance. Réservez en quelques clics.</p>
+    </div>
+  </header>
+  <section class="section">
+    <div class="container">
+      <div class="filters">
+        <button class="active" onclick="filterCoachings('')"><i class="fa-solid fa-border-all" style="margin-right:5px;"></i>Tous</button>
+        <button onclick="filterCoachings('Yoga')"><i class="fa-solid fa-spa" style="margin-right:5px;"></i>Yoga</button>
+        <button onclick="filterCoachings('Meditation')"><i class="fa-solid fa-brain" style="margin-right:5px;"></i>Méditation</button>
+        <button onclick="filterCoachings('Relaxation')"><i class="fa-solid fa-moon" style="margin-right:5px;"></i>Relaxation</button>
+        <button onclick="filterCoachings('Respiration')"><i class="fa-solid fa-wind" style="margin-right:5px;"></i>Respiration</button>
+        <button onclick="filterCoachings('Nutrition')"><i class="fa-solid fa-apple-whole" style="margin-right:5px;"></i>Nutrition</button>
+        <select onchange="filterCoachingType(this.value)">
+          <option value="">Type</option>
+          <option value="en ligne">En ligne</option>
+          <option value="presentiel">Présentiel</option>
+          <option value="individuel">Individuel</option>
+          <option value="groupe">Groupe</option>
+        </select>
+      </div>
+      <div class="grid-3" id="coachingGrid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== PAGE PRODUITS ===== -->
+<div id="page-produits" class="page">
+  <div data-nav></div>
+  <header class="page-head">
+    <div class="container">
+      <span class="eyebrow">Boutique</span>
+      <h1>Produits bien-être</h1>
+      <p>Huiles essentielles, tisanes, accessoires — sélection naturelle et éco-responsable.</p>
+    </div>
+  </header>
+  <section class="section">
+    <div class="container">
+      <div class="filters">
+        <button class="active" onclick="filterProduits('')"><i class="fa-solid fa-border-all" style="margin-right:5px;"></i>Tous</button>
+        <button onclick="filterProduits('Huiles')"><i class="fa-solid fa-droplet" style="margin-right:5px;"></i>Huiles</button>
+        <button onclick="filterProduits('Bougies')"><i class="fa-solid fa-fire" style="margin-right:5px;"></i>Bougies</button>
+        <button onclick="filterProduits('Tisanes')"><i class="fa-solid fa-mug-hot" style="margin-right:5px;"></i>Tisanes</button>
+        <button onclick="filterProduits('Accessoires')"><i class="fa-solid fa-gem" style="margin-right:5px;"></i>Accessoires</button>
+        <button onclick="filterProduits('Soins')"><i class="fa-solid fa-hand-sparkles" style="margin-right:5px;"></i>Soins</button>
+        <select onchange="sortProduits(this.value)">
+          <option value="">Trier par</option>
+          <option value="prix_asc">Prix croissant</option>
+          <option value="stock">Stock disponible</option>
+        </select>
+      </div>
+      <div class="grid-4" id="productGrid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== PAGE CART ===== -->
+<div id="page-cart" class="page">
+  <div data-nav></div>
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Panier</span>
+      <h2>Votre panier</h2>
+      <div class="cart-layout" style="margin-top:24px">
+        <div class="form-box">
+          <div id="cartItems"><p style="color:var(--muted);text-align:center;padding:32px 0;"><i class="fa-solid fa-cart-shopping" style="font-size:40px;color:var(--rose-pale);display:block;margin-bottom:12px;"></i>Votre panier est vide.</p></div>
+          <div style="margin-top:20px">
+            <button class="btn btn-outline" onclick="AppRouter.go('produits')">
+              <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Continuer mes achats
+            </button>
+          </div>
+        </div>
+        <aside class="summary">
+          <h3><i class="fa-solid fa-receipt" style="color:var(--rose);margin-right:8px;"></i>Récapitulatif</h3>
+          <div class="line"><span>Sous-total</span><span id="cartSubtotal">0 DT</span></div>
+          <div class="line"><span><i class="fa-solid fa-truck-fast" style="color:var(--sage);margin-right:5px;"></i>Livraison</span><span>7 DT</span></div>
+          <div class="line total"><span>Total</span><span id="cartTotal">7 DT</span></div>
+          <button class="btn btn-primary btn-full" style="margin-top:18px" onclick="AppRouter.go('checkout')">
+            Passer commande <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </aside>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== PAGE CHECKOUT ===== -->
+<div id="page-checkout" class="page">
+  <div data-nav></div>
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Commande</span>
+      <h2>Valider ma commande</h2>
+      <div class="cart-layout" style="margin-top:24px">
+        <div class="form-box">
+          <div class="form-row">
+            <div class="field"><label>Prénom</label><input id="coPrenom"></div>
+            <div class="field"><label>Nom</label><input id="coNom"></div>
+          </div>
+          <div class="field"><label>Email</label><input type="email" id="coEmail"></div>
+          <div class="field"><label>Téléphone</label><input id="coTel"></div>
+          <div class="field"><label>Adresse de livraison</label><textarea id="coAdresse" placeholder="Votre adresse complète..."></textarea></div>
+          <div class="field">
+            <label>Mode de paiement</label>
+            <select>
+              <option>Paiement au centre</option>
+              <option>Paiement à la livraison</option>
+            </select>
+          </div>
+        </div>
+        <aside class="summary">
+          <h3><i class="fa-solid fa-box" style="color:var(--rose);margin-right:8px;"></i>Commande</h3>
+          <div class="line"><span>Produits</span><span id="checkoutSub">0 DT</span></div>
+          <div class="line"><span>Livraison</span><span>7 DT</span></div>
+          <div class="line total"><span>Total</span><span id="checkoutTotal">7 DT</span></div>
+          <button class="btn btn-primary btn-full" style="margin-top:18px" id="checkoutBtn">
+            <i class="fa-solid fa-check"></i> Confirmer la commande
+          </button>
+        </aside>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== PAGE RESERVATION ===== -->
+<div id="page-reservation" class="page">
+  <div data-nav></div>
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Réservation</span>
+      <h2 id="resCoachingTitle">Réserver une séance</h2>
+      <div class="detail-layout" style="margin-top:24px">
+        <div>
+          <div class="card" style="margin-bottom:22px">
+            <img id="resCoachingImg" src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?auto=format&fit=crop&w=1200&q=80" alt="Séance">
+            <div class="card-body">
+              <h3 id="resCoachingTitle2">Yoga doux du matin</h3>
+              <p id="resCoachingCoach">Coach</p>
+            </div>
+          </div>
+          <div class="form-box">
+            <h3 style="margin-bottom:16px"><i class="fa-solid fa-calendar" style="color:var(--rose);margin-right:8px;"></i>Date & Heure de la séance</h3>
+            <div id="resDateTimeInfo"></div>
+            <p style="color:var(--muted);font-size:13px;margin-top:4px;">
+              <i class="fa-solid fa-circle-info" style="margin-right:5px;"></i>
+              La date et l'heure sont fixées par l'administrateur. Une seule place par réservation.
+            </p>
+            <input type="hidden" id="resCoachingIdInput">
+          </div>
+        </div>
+        <aside class="summary">
+          <h3><i class="fa-solid fa-list-check" style="color:var(--rose);margin-right:8px;"></i>Récapitulatif</h3>
+          <div class="line"><span>Séance</span><span id="resCoachingPrice">—</span></div>
+          <div class="line"><span>Places</span><span>1 place</span></div>
+          <div class="line"><span>Statut initial</span><span class="badge warn">En attente</span></div>
+          <div class="line total"><span>Total</span><span id="resTotal">—</span></div>
+          <button class="btn btn-primary btn-full" style="margin-top:18px" id="resSubmitBtn">
+            <i class="fa-solid fa-check"></i> Confirmer la réservation
+          </button>
+        </aside>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== PAGE ACCOUNT ===== -->
+<div id="page-account" class="page">
+  <div data-nav></div>
+
+  <section class="section">
+    <div class="container">
+
+      <span class="eyebrow">Espace client</span>
+      <h2>Mon compte</h2>
+
+      <!-- HEADER USER -->
+      <div class="account-header" style="margin-top:28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        
+        <div class="account-avatar" id="accountAvatar">S</div>
+
+        <div style="flex:1;min-width:220px;">
+          <h3 id="accountName">Chargement...</h3>
+          <p id="accountEmail" style="color:var(--muted)"></p>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+            <button class="btn btn-outline btn-sm" onclick="App.openEditProfile()">
+              <i class="fa-solid fa-pen"></i> Modifier le profil
+            </button>
+
+            <button class="btn btn-danger btn-sm" onclick="App.handleLogout()">
+              <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- DASHBOARD -->
+      <div class="account-layout" style="margin-top:30px;display:grid;grid-template-columns:2fr 1fr;gap:20px;">
+
+        <!-- HISTORIQUE -->
+        <div class="form-box">
+          <h3 style="margin-bottom:16px">
+            <i class="fa-solid fa-clock-rotate-left" style="color:var(--rose);margin-right:8px;"></i>
+            Historique
+          </h3>
+
+          <div id="accountHistory">
+            <p style="color:var(--muted);text-align:center;padding:20px 0;">
+              Aucun historique pour le moment.
+            </p>
+          </div>
+        </div>
+
+        <!-- ACTIONS -->
+        <div class="form-box">
+
+          <h3 style="margin-bottom:16px">
+            <i class="fa-solid fa-bolt" style="color:var(--rose);margin-right:8px;"></i>
+            Actions rapides
+          </h3>
+
+          <button class="btn btn-primary btn-full" style="margin-bottom:12px" onclick="AppRouter.go('coachings')">
+            <i class="fa-solid fa-calendar-check"></i> Réserver une séance
+          </button>
+
+          <button class="btn btn-outline btn-full" style="margin-bottom:12px" onclick="AppRouter.go('produits')">
+            <i class="fa-solid fa-bag-shopping"></i> Accéder à la boutique
+          </button>
+
+          <button class="btn btn-danger btn-full" onclick="App.handleLogout()">
+            <i class="fa-solid fa-right-from-bracket"></i> Se déconnecter
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- ===== PAGE ADMIN ===== -->
+<div id="page-admin" class="page">
+  <div data-nav></div>
+  <div class="admin-layout">
+    <aside class="admin-side">
+      <div class="admin-logo">
+        Wellness<span>·tn</span>
+        <br><small style="font-size:12px;opacity:.5;font-family:'DM Sans',sans-serif">Administration</small>
+      </div>
+      <button class="active" onclick="App.loadAdminPage('dashboard')"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Dashboard</button>
+      <button onclick="App.loadAdminPage('coachings')"><i class="fa-solid fa-spa" aria-hidden="true"></i> Coachings</button>
+      <button onclick="App.loadAdminPage('produits')"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> Produits</button>
+      <button onclick="App.loadAdminPage('reservations')"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Réservations</button>
+      <button onclick="App.loadAdminPage('commandes')"><i class="fa-solid fa-box" aria-hidden="true"></i> Commandes</button>
+      <button onclick="App.loadAdminPage('utilisateurs')"><i class="fa-solid fa-users" aria-hidden="true"></i> Utilisateurs</button>
+      <button onclick="AppRouter.go('home')" style="color:rgba(255,255,255,.80);border-top:1px solid rgba(255,255,255,.10);margin-top:auto;padding-top:18px;"><i class="fa-solid fa-globe" aria-hidden="true"></i> Voir le site</button>
+      <button onclick="App.handleLogout()" style="color:rgba(255,100,100,.7)"><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i> Déconnexion</button>
+    </aside>
+    <main class="admin-main" id="adminMain">
+      <span class="eyebrow">Administration</span>
+      <h2>Tableau de bord</h2>
+      <div class="stats">
+        <div class="stat"><strong id="statClients">—</strong><span>Clients</span></div>
+        <div class="stat"><strong id="statRevenu">—</strong><span>Revenus totaux</span></div>
+        <div class="stat"><strong id="statReservations">—</strong><span>Réservations</span></div>
+        <div class="stat"><strong id="statCommandes">—</strong><span>Commandes en cours</span></div>
+      </div>
+
+      <div class="table-head">
+        <h3>Coachings</h3>
+        <button class="btn btn-primary btn-sm" onclick="openModal('coaching', null)">
+          <i class="fa-solid fa-plus"></i> Ajouter
+        </button>
+      </div>
+      <table>
+        <thead><tr><th>Titre</th><th>Coach</th><th>Type</th><th>Places</th><th>Prix</th><th>Actions</th></tr></thead>
+        <tbody id="adminCoachBody"></tbody>
+      </table>
+
+      <div class="table-head">
+        <h3>Produits</h3>
+        <button class="btn btn-primary btn-sm" onclick="openModal('produit', null)">
+          <i class="fa-solid fa-plus"></i> Ajouter
+        </button>
+      </div>
+      <table>
+        <thead><tr><th>Nom</th><th>Catégorie</th><th>Quantité</th><th>Prix</th><th>Actions</th></tr></thead>
+        <tbody id="adminProdBody"></tbody>
+      </table>
+
+      <div class="table-head"><h3>Réservations</h3></div>
+      <table>
+        <thead><tr><th>Client</th><th>Coaching</th><th>Créneau</th><th>Statut</th><th>Actions</th></tr></thead>
+        <tbody id="adminResBody"></tbody>
+      </table>
+
+      <div class="table-head"><h3>Commandes</h3></div>
+      <table>
+        <thead><tr><th>Client</th><th>Produit</th><th>Qté</th><th>Total</th><th>Statut</th><th>Actions</th></tr></thead>
+        <tbody id="adminCmdBody"></tbody>
+      </table>
+
+      <div class="table-head"><h3>Utilisateurs</h3></div>
+      <table>
+        <thead><tr><th>Nom</th><th>Email</th><th>Rôle</th><th>Statut</th><th>Actions</th></tr></thead>
+        <tbody id="adminUsrBody"></tbody>
+      </table>
+    </main>
+  </div>
+</div>
+
+<!-- ===== PAGE AUTH ===== -->
+<div id="page-auth" class="page">
+  <div class="auth">
+    <div class="auth-visual">
+      <div>
+        <h1>Bienvenue<br><em>chez Wellness</em></h1>
+        <p>Un espace client pour réserver, commander et suivre votre parcours bien-être, en toute sérénité.</p>
+        <div style="display:flex;gap:12px;margin-top:24px;flex-wrap:wrap;">
+          <span style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;">
+            <i class="fa-solid fa-shield-halved"></i> 100% sécurisé
+          </span>
+          <span style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;">
+            <i class="fa-solid fa-leaf"></i> Compte gratuit
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="auth-form">
+      <div class="auth-card">
+        <button class="btn btn-light btn-sm" onclick="AppRouter.go('home')" style="margin-bottom:16px">
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Retour au site
+        </button>
+        <div class="tabs">
+          <button id="loginTab" class="active" onclick="switchAuth('login')">
+            <i class="fa-solid fa-right-to-bracket" style="margin-right:5px;"></i>Connexion
+          </button>
+          <button id="signupTab" onclick="switchAuth('signup')">
+            <i class="fa-solid fa-user-plus" style="margin-right:5px;"></i>Inscription
+          </button>
+        </div>
+
+        <div id="loginForm">
+          <h2>Connexion</h2>
+          <p style="margin-bottom:20px">Accéder à mon espace personnel.</p>
+          <div class="field"><label>Email</label><input type="email" id="loginEmail" placeholder="email@exemple.com"></div>
+          <div class="field"><label>Mot de passe</label><input type="password" id="loginPwd" placeholder="Votre mot de passe"></div>
+          <button class="btn btn-primary btn-full" id="loginFormBtn">
+            Se connecter <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div id="signupForm" style="display:none">
+          <h2>Inscription</h2>
+          <p style="margin-bottom:20px">Créer un compte client gratuit.</p>
+          <div class="form-row">
+            <div class="field"><label>Prénom</label><input id="regPrenom"></div>
+            <div class="field"><label>Nom</label><input id="regNom"></div>
+          </div>
+          <div class="field"><label>Email</label><input type="email" id="regEmail"></div>
+          <div class="field"><label>Téléphone</label><input id="regTel" placeholder="+216..."></div>
+          <div class="field"><label>Mot de passe</label><input type="password" id="regPwd"></div>
+          <button class="btn btn-primary btn-full" id="signupFormBtn">
+            Créer mon compte <i class="fa-solid fa-check" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE GOODBYE ===== -->
+<div id="page-goodbye" class="page">
+  <div class="goodbye-page">
+    <div class="goodbye-card">
+      <div class="goodbye-icon"><i class="fa-solid fa-seedling" aria-hidden="true"></i></div>
+      <h2>À bientôt !</h2>
+      <p>Vous avez été déconnecté(e) en toute sécurité.<br>Merci de nous avoir rendu visite — prenez soin de vous.</p>
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="AppRouter.go('home')">
+          <i class="fa-solid fa-home"></i> Retour à l'accueil
+        </button>
+        <button class="btn btn-outline" onclick="AppRouter.go('auth')">
+          <i class="fa-solid fa-right-to-bracket"></i> Se reconnecter
+        </button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL MODIFIER PROFIL ===== -->
+<div id="profile-modal" class="modal" role="dialog" aria-modal="true" aria-label="Modifier le profil">
+  <div class="modal-card" style="max-width:480px;">
+    <div class="modal-head">
+      <h3><i class="fa-solid fa-user-pen" style="color:var(--rose);margin-right:8px;"></i>Modifier mon profil</h3>
+      <button class="btn btn-light btn-sm" onclick="App.closeEditProfile()"><i class="fa-solid fa-xmark"></i> Fermer</button>
+    </div>
+    <div class="form-row" style="margin-top:16px;">
+      <div class="field"><label>Prénom</label><input id="editPrenom" placeholder="Prénom"></div>
+      <div class="field"><label>Nom</label><input id="editNom" placeholder="Nom"></div>
+    </div>
+    <div class="field"><label>Email</label><input type="email" id="editEmail" placeholder="email@exemple.com"></div>
+    <div class="field"><label>Téléphone</label><input id="editTel" placeholder="+216..."></div>
+    <hr style="border:none;border-top:1px solid var(--border);margin:16px 0;">
+    <p style="font-size:13px;color:var(--muted);margin-bottom:12px;"><i class="fa-solid fa-lock" style="margin-right:5px;color:var(--sage);"></i>Laisser vide pour ne pas changer le mot de passe</p>
+    <div class="field"><label>Nouveau mot de passe</label><input type="password" id="editPwd" placeholder="Nouveau mot de passe"></div>
+    <div class="field"><label>Confirmer mot de passe</label><input type="password" id="editPwdConfirm" placeholder="Confirmer"></div>
+    <button class="btn btn-primary btn-full" style="margin-top:16px" id="profileSaveBtn">
+      <i class="fa-solid fa-floppy-disk"></i> Enregistrer les modifications
+    </button>
+  </div>
+</div>
+
+<!-- ===== POPUP AUTH (non-connecté) ===== -->
+<div id="auth-popup" class="modal" role="dialog" aria-modal="true" aria-label="Connexion requise">
+  <div class="modal-card" style="max-width:460px;text-align:center;">
+    <div style="font-size:48px;margin-bottom:8px;">🌿</div>
+    <h3 id="authPopupTitle" style="margin-bottom:8px;">Connectez-vous pour continuer</h3>
+    <p id="authPopupMsg" style="color:var(--muted);margin-bottom:24px;font-size:14px;">Créez un compte gratuit ou connectez-vous pour réserver vos séances et commander en boutique.</p>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <button class="btn btn-primary btn-full" id="authPopupLogin">
+        <i class="fa-solid fa-right-to-bracket"></i> Se connecter
+      </button>
+      <button class="btn btn-outline btn-full" id="authPopupRegister">
+        <i class="fa-solid fa-user-plus"></i> Créer un compte gratuit
+      </button>
+      <button class="btn btn-light btn-full" id="authPopupContinue">
+        <i class="fa-solid fa-eye"></i> Continuer sans compte
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL ADMIN ===== -->
+<div id="modal" class="modal">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3 id="modalTitle">Ajouter</h3>
+      <button class="btn btn-light btn-sm" onclick="closeModal()">
+        <i class="fa-solid fa-xmark"></i> Fermer
+      </button>
+    </div>
+    <div id="modalFields"></div>
+    <button class="btn btn-primary btn-full" style="margin-top:16px" id="modalSaveBtn">
+      <i class="fa-solid fa-floppy-disk"></i> Enregistrer
+    </button>
+  </div>
+</div>
+
+<!-- Toast container -->
+<div id="toast-container"></div>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/router.js"></script>
+<script src="js/app.js"></script>
+<script>
+/* ----- Nav injection ----- */
+document.querySelectorAll('[data-nav]').forEach(el => {
+  el.replaceWith(document.getElementById('mainNav').content.cloneNode(true));
+});
+
+/* ----- Slot selection ----- */
+document.addEventListener('click', e => {
+  const slot = e.target.closest('.slot:not(.disabled)');
+  if (slot) {
+    slot.closest('.slots').querySelectorAll('.slot').forEach(s => s.classList.remove('active'));
+    slot.classList.add('active');
+  }
+});
+
+/* ----- Filter helpers ----- */
+function filterCoachings(cat) {
+  document.querySelectorAll('#page-coachings .filters button').forEach(b => b.classList.remove('active'));
+  event?.target?.classList.add('active');
+  App._loadCoachings(cat ? `?categorie=${cat}` : '');
+}
+function filterCoachingType(type) {
+  App._loadCoachings(type ? `?type=${type}` : '');
+}
+function filterProduits(cat) {
+  document.querySelectorAll('#page-produits .filters button').forEach(b => b.classList.remove('active'));
+  event?.target?.classList.add('active');
+  App._loadProduits(cat ? `?categorie=${cat}` : '');
+}
+function sortProduits(sort) {
+  App._loadProduits(sort ? `?sort=${sort}` : '');
+}
+
+/* ----- Auth tabs ----- */
+function switchAuth(type) {
+  document.getElementById('loginForm').style.display  = type === 'login'  ? 'block' : 'none';
+  document.getElementById('signupForm').style.display = type === 'signup' ? 'block' : 'none';
+  document.getElementById('loginTab').classList.toggle('active',  type === 'login');
+  document.getElementById('signupTab').classList.toggle('active', type === 'signup');
+}
+
+/* ----- Admin Modal ----- */
+let _modalType = null;
+let _modalId   = null;
+function openModal(type, id = null) {
+  _modalType = type;
+  _modalId   = id;
+  const isProd = type === 'produit';
+  document.getElementById('modalTitle').textContent = (id ? 'Modifier' : 'Ajouter') + (isProd ? ' un produit' : ' un coaching');
+  document.getElementById('modalFields').innerHTML = isProd ? `
+    <div class="field"><label>Nom du produit</label><input id="mNom" placeholder="Nom"></div>
+    <div class="form-row">
+      <div class="field"><label>Catégorie</label><select id="mCat">
+  <option value="">-- Choisir catégorie --</option>
+  <option value="Huiles">Huiles essentielles</option>
+  <option value="Tisanes">Tisanes</option>
+  <option value="Bougies">Bougies</option>
+  <option value="Accessoires">Accessoires</option>
+  <option value="Soins">Soins naturels</option>
+</select></div>
+      <div class="field"><label>Prix (DT)</label><input type="number" id="mPrix" placeholder="0"></div>
+    </div>
+    <div class="form-row">
+      <div class="field"><label>Quantité</label><input type="number" id="mQte" placeholder="0"></div>
+      <div class="field">
+        <label>Image du produit</label>
+        <input type="file" id="mImgFile" accept="image/*" onchange="previewModalImage('mImgFile','mImgPreview')">
+        <img id="mImgPreview" src="" style="display:none;width:100%;max-height:120px;object-fit:cover;border-radius:8px;margin-top:8px;">
+        <input type="hidden" id="mImg">
+      </div>
+    </div>
+    <div class="field"><label>Description</label><textarea id="mDesc"></textarea></div>
+  ` : `
+    <div class="field"><label>Titre du coaching</label><input id="mTitre" placeholder="Titre"></div>
+    <div class="form-row">
+      <div class="field"><label>Coach</label><input id="mCoach" placeholder="Prénom Nom"></div>
+      <div class="field"><label>Catégorie</label><select id="mCatC">
+  <option value="">-- Choisir catégorie --</option>
+  <option value="Yoga">Yoga</option>
+  <option value="Meditation">Méditation</option>
+  <option value="Relaxation">Relaxation</option>
+  <option value="Respiration">Respiration</option>
+  <option value="Nutrition">Nutrition</option>
+</select></div>
+    </div>
+    <div class="form-row">
+      <div class="field"><label>Type</label>
+        <select id="mType">
+          <option value="groupe">Groupe</option>
+          <option value="individuel">Individuel</option>
+          <option value="en ligne">En ligne</option>
+          <option value="presentiel">Présentiel</option>
+        </select>
+      </div>
+      <div class="field"><label>Nb places</label><input type="number" id="mPlaces" placeholder="10"></div>
+    </div>
+    <div class="form-row">
+      <div class="field"><label>Prix (DT)</label><input type="number" id="mPrixC" placeholder="0"></div>
+    </div>
+    <div class="form-row">
+      <div class="field"><label>Date de la séance</label><input type="date" id="mDate"></div>
+      <div class="field"><label>Heure de début</label><input type="time" id="mHeure"></div>
+    </div>
+    <div class="field">
+      <label>Image du coaching</label>
+      <input type="file" id="mImgFileC" accept="image/*" onchange="previewModalImage('mImgFileC','mImgPreviewC')">
+      <img id="mImgPreviewC" src="" style="display:none;width:100%;max-height:120px;object-fit:cover;border-radius:8px;margin-top:8px;">
+      <input type="hidden" id="mImgC">
+    </div>
+    <div class="field"><label>Description</label><textarea id="mDescC"></textarea></div>
+  `;
+  // Si modification, pré-remplir les champs
+  if (id) {
+    const list = isProd ? App.produitsList : App.coachingsList;
+    const item = list.find(x => x.id == id);
+    if (item) {
+      if (isProd) {
+        const s = v => { const el = document.getElementById(v[0]); if (el) el.value = item[v[1]] ?? ''; };
+        [['mNom','nom'],['mCat','categorie'],['mPrix','prix'],['mQte','quantite'],['mDesc','description']].forEach(s);
+        if (item.image) { document.getElementById('mImg').value = item.image; const p = document.getElementById('mImgPreview'); p.src = item.image; p.style.display = 'block'; }
+      } else {
+        const s = v => { const el = document.getElementById(v[0]); if (el) el.value = item[v[1]] ?? ''; };
+        [['mTitre','titre'],['mCoach','coach'],['mCatC','categorie'],['mType','type'],['mPlaces','nb_places'],['mPrixC','prix'],['mDescC','description'],['mDate','date_coaching'],['mHeure','heure_coaching']].forEach(s);
+        if (item.image) { document.getElementById('mImgC').value = item.image; const p = document.getElementById('mImgPreviewC'); p.src = item.image; p.style.display = 'block'; }
+      }
+    }
+  }
+  document.getElementById('modal').classList.add('active');
+}
+
+function previewModalImage(inputId, previewId) {
+  const file = document.getElementById(inputId)?.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const preview = document.getElementById(previewId);
+    if (preview) { preview.src = e.target.result; preview.style.display = 'block'; }
+    // Stocker base64 dans le hidden input
+    const hiddenId = inputId === 'mImgFile' ? 'mImg' : 'mImgC';
+    const hidden = document.getElementById(hiddenId);
+    if (hidden) hidden.value = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+function closeModal() { document.getElementById('modal').classList.remove('active'); }
+document.getElementById('modal').addEventListener('click', e => {
+  if (e.target === document.getElementById('modal')) closeModal();
+});
+document.getElementById('modalSaveBtn').addEventListener('click', async () => {
+  const v = id => document.getElementById(id)?.value;
+  try {
+    if (_modalType === 'produit') {
+      const data = { nom: v('mNom'), categorie: v('mCat'), prix: v('mPrix'), quantite: v('mQte'), image: v('mImg'), description: v('mDesc') };
+      _modalId ? await WellnessAPI.updateProduit(_modalId, data) : await WellnessAPI.createProduit(data);
+      await App._loadProduits();
+      await App.loadAdminPage('produits');
+    } else {
+      const data = {
+        titre: v('mTitre'), coach: v('mCoach'), categorie: v('mCatC'),
+        type: v('mType'), nb_places: v('mPlaces'), prix: v('mPrixC'),
+        image: v('mImgC'), description: v('mDescC'),
+        date_coaching: v('mDate') || null,
+        heure_coaching: v('mHeure') || null,
+      };
+      _modalId ? await WellnessAPI.updateCoaching(_modalId, data) : await WellnessAPI.createCoaching(data);
+      await App._loadCoachings();
+      await App.loadAdminPage('coachings');
+    }
+    closeModal();
+    Toast.show('Enregistré avec succès !');
+  } catch(e) { Toast.show(e.message, 'error'); }
+});
+
+/* ----- Newsletter Popup ----- */
+function closeNewsletter() {
+  document.getElementById('newsletter-popup').classList.remove('active');
+  sessionStorage.setItem('nlClosed', '1');
+}
+function subscribeNewsletter() {
+  const email = document.getElementById('nlEmail').value;
+  if (!email || !email.includes('@')) { alert('Veuillez saisir un email valide.'); return; }
+  closeNewsletter();
+  // Toast feedback
+  if (typeof Toast !== 'undefined') Toast.show('Merci ! Vous êtes bien inscrit(e). 🌿', 'success');
+}
+// Show popup after 4s (only once per session)
+setTimeout(() => {
+  if (!sessionStorage.getItem('nlClosed')) {
+    document.getElementById('newsletter-popup').classList.add('active');
+  }
+}, 4000);
+// Close on backdrop click
+document.getElementById('newsletter-popup').addEventListener('click', e => {
+  if (e.target === document.getElementById('newsletter-popup')) closeNewsletter();
+});
+
+/* ----- Video Popup ----- */
+function openVideoPopup(videoId) {
+  document.getElementById('videoPopupFrame').src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+  document.getElementById('video-popup').classList.add('active');
+}
+function closeVideoPopup() {
+  document.getElementById('video-popup').classList.remove('active');
+  document.getElementById('videoPopupFrame').src = '';
+}
+document.getElementById('video-popup').addEventListener('click', e => {
+  if (e.target === document.getElementById('video-popup')) closeVideoPopup();
+});
+
+/* ----- Cart reactivity ----- */
+Panier.onChange(() => {
+  const sub = Panier.total().toFixed(2);
+  const tot = (Panier.total() + 7).toFixed(2);
+  const cs = document.getElementById('checkoutSub');
+  const ct = document.getElementById('checkoutTotal');
+  if (cs) cs.textContent = sub + ' DT';
+  if (ct) ct.textContent = tot + ' DT';
+});
+
+Auth.onChange(user => {
+  const av = document.getElementById('accountAvatar');
+  if (av && user) av.textContent = (user.prenom?.[0] || '') + (user.nom?.[0] || '');
+});
+
+/* ----- Auth Popup (non-connecté) ----- */
+let _authPopupAction = null;
+
+function showAuthPopup(action, title, msg) {
+  _authPopupAction = action;
+  const popup = document.getElementById('auth-popup');
+  if (title) document.getElementById('authPopupTitle').textContent = title;
+  if (msg)   document.getElementById('authPopupMsg').textContent   = msg;
+  popup.classList.add('active');
+}
+
+function closeAuthPopup() {
+  document.getElementById('auth-popup').classList.remove('active');
+  _authPopupAction = null;
+}
+
+document.getElementById('authPopupLogin').addEventListener('click', () => {
+  closeAuthPopup();
+  AppRouter.go('auth');
+  switchAuth('login');
+});
+document.getElementById('authPopupRegister').addEventListener('click', () => {
+  closeAuthPopup();
+  AppRouter.go('auth');
+  switchAuth('signup');
+});
+document.getElementById('authPopupContinue').addEventListener('click', () => {
+  closeAuthPopup();
+});
+document.getElementById('auth-popup').addEventListener('click', e => {
+  if (e.target === document.getElementById('auth-popup')) closeAuthPopup();
+});
+
+/* ----- Profile Modal ----- */
+App.openEditProfile = async function() {
+  if (!Auth.user) return;
+
+  // Récupérer les données fraîches depuis le serveur
+  let u = Auth.user;
+  try {
+    const fresh = await WellnessAPI.me();
+    if (fresh.authenticated) u = fresh.user;
+  } catch(e) { /* on utilise les données locales */ }
+
+  document.getElementById('editPrenom').value       = u.prenom     || '';
+  document.getElementById('editNom').value          = u.nom        || '';
+  document.getElementById('editEmail').value        = u.email      || '';
+  document.getElementById('editTel').value          = u.telephone  || '';
+  document.getElementById('editPwd').value          = '';
+  document.getElementById('editPwdConfirm').value   = '';
+  document.getElementById('profile-modal').classList.add('active');
+};
+
+App.closeEditProfile = function() {
+  document.getElementById('profile-modal').classList.remove('active');
+};
+
+document.getElementById('profile-modal').addEventListener('click', e => {
+  if (e.target === document.getElementById('profile-modal')) App.closeEditProfile();
+});
+
+document.getElementById('profileSaveBtn').addEventListener('click', async () => {
+  const prenom = document.getElementById('editPrenom').value.trim();
+  const nom    = document.getElementById('editNom').value.trim();
+  const email  = document.getElementById('editEmail').value.trim();
+  const tel    = document.getElementById('editTel').value.trim();
+  const pwd    = document.getElementById('editPwd').value;
+  const pwd2   = document.getElementById('editPwdConfirm').value;
+
+  if (!prenom || !nom || !email) { Toast.show('Prénom, nom et email sont obligatoires.', 'warn'); return; }
+  if (pwd && pwd !== pwd2)       { Toast.show('Les mots de passe ne correspondent pas.', 'error'); return; }
+
+  const payload = { prenom, nom, email, telephone: tel };
+  if (pwd) payload.mot_de_passe = pwd;
+
+  try {
+    await WellnessAPI.updateUtilisateur(Auth.user.id, payload);
+    // Mettre à jour la session locale avec toutes les données
+    Auth.user = { ...Auth.user, prenom, nom, email, telephone: tel };
+    Auth._notify();
+    App.closeEditProfile();
+    App.loadAccountPage();
+    Toast.show('Profil mis à jour avec succès ! 🌿');
+  } catch(e) {
+    Toast.show(e.message || 'Erreur lors de la mise à jour.', 'error');
+  }
+});
+
+/* ----- Override openReservation et addToCart pour pop-up ----- */
+const _origOpenReservation = App.openReservation.bind(App);
+App.openReservation = function(coachingId) {
+  if (!Auth.isLoggedIn()) {
+    showAuthPopup('reserve',
+      'Réserver une séance',
+      'Connectez-vous ou créez un compte gratuit pour réserver votre séance de coaching.');
+    return;
+  }
+  _origOpenReservation(coachingId);
+};
+
+const _origAddToCart = App.addToCart.bind(App);
+App.addToCart = function(produitId) {
+  if (!Auth.isLoggedIn()) {
+    showAuthPopup('cart',
+      'Ajouter au panier',
+      'Connectez-vous ou créez un compte gratuit pour accéder à la boutique et commander.');
+    return;
+  }
+  _origAddToCart(produitId);
+};
+
+App.init();
+</script>
+</body>
+</html>

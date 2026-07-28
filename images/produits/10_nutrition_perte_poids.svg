@@ -1,0 +1,67 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F5F8F5"/>
+    </linearGradient>
+    <linearGradient id="plate_rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5F5F5"/>
+      <stop offset="100%" stop-color="#E8E8E8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- clean minimal table surface -->
+  <rect x="0" y="320" width="800" height="280" fill="#FAFAFA"/>
+  <line x1="0" y1="320" x2="800" y2="320" stroke="#E0E0E0" stroke-width="1"/>
+  <!-- plate -->
+  <circle cx="400" cy="360" r="190" fill="url(#plate_rim)"/>
+  <circle cx="400" cy="360" r="178" fill="white"/>
+  <circle cx="400" cy="360" r="170" fill="#FAFAF8"/>
+  <!-- plate divider concept (rule of thirds) -->
+  <!-- salmon piece top right -->
+  <path d="M420 270 Q460 255 490 270 Q510 285 508 310 Q498 330 470 328 Q440 326 420 305 Q410 290 420 270 Z" fill="#FF8A65"/>
+  <path d="M420 270 Q460 255 490 270" fill="none" stroke="#F4511E" stroke-width="2" opacity="0.4"/>
+  <!-- salmon skin -->
+  <path d="M418 305 Q450 328 506 314" fill="none" stroke="#E64A19" stroke-width="2.5" opacity="0.3"/>
+  <!-- grill marks on salmon -->
+  <line x1="435" y1="278" x2="495" y2="292" stroke="#BF360C" stroke-width="2" opacity="0.35"/>
+  <line x1="432" y1="292" x2="492" y2="308" stroke="#BF360C" stroke-width="2" opacity="0.3"/>
+  <!-- avocado half left -->
+  <path d="M290 280 Q310 250 340 255 Q368 262 370 290 Q372 318 350 330 Q325 338 305 325 Q282 308 290 280 Z" fill="#8BC34A"/>
+  <path d="M295 285 Q312 262 338 266 Q360 272 362 295 Q362 315 346 325 Q328 332 312 322 Q292 308 295 285 Z" fill="#AED581"/>
+  <ellipse cx="333" cy="300" rx="24" ry="28" fill="#D4A017" opacity="0.9"/>
+  <ellipse cx="333" cy="298" rx="18" ry="22" fill="#C8960F"/>
+  <!-- green vegetables - asparagus bottom -->
+  <g>
+    <rect x="340" y="390" width="8" height="80" rx="4" fill="#388E3C"/>
+    <ellipse cx="344" cy="388" rx="6" ry="10" fill="#2E7D32"/>
+    <rect x="358" y="385" width="8" height="85" rx="4" fill="#43A047"/>
+    <ellipse cx="362" cy="383" rx="6" ry="10" fill="#388E3C"/>
+    <rect x="376" y="388" width="8" height="82" rx="4" fill="#388E3C"/>
+    <ellipse cx="380" cy="386" rx="6" ry="10" fill="#2E7D32"/>
+    <rect x="394" y="386" width="8" height="84" rx="4" fill="#4CAF50"/>
+    <ellipse cx="398" cy="384" rx="6" ry="10" fill="#43A047"/>
+    <rect x="412" y="390" width="8" height="80" rx="4" fill="#388E3C"/>
+    <ellipse cx="416" cy="388" rx="6" ry="10" fill="#2E7D32"/>
+    <rect x="430" y="387" width="8" height="83" rx="4" fill="#43A047"/>
+    <ellipse cx="434" cy="385" rx="6" ry="10" fill="#388E3C"/>
+  </g>
+  <!-- cherry tomatoes garnish -->
+  <circle cx="460" cy="340" r="14" fill="#EF5350"/>
+  <circle cx="480" cy="355" r="12" fill="#E53935"/>
+  <ellipse cx="460" cy="326" rx="6" ry="4" fill="#4CAF50"/>
+  <ellipse cx="480" cy="343" rx="5" ry="3" fill="#388E3C"/>
+  <!-- microgreens on salmon -->
+  <path d="M440 265 Q445 255 452 262" stroke="#4CAF50" stroke-width="2" fill="none"/>
+  <path d="M452 260 Q458 250 464 258" stroke="#388E3C" stroke-width="2" fill="none"/>
+  <path d="M464 256 Q469 246 476 254" stroke="#4CAF50" stroke-width="2" fill="none"/>
+  <!-- fork left of plate -->
+  <rect x="178" y="260" width="7" height="130" rx="3" fill="#BDBDBD"/>
+  <rect x="174" y="258" width="3" height="36" rx="1.5" fill="#BDBDBD"/>
+  <rect x="182" y="258" width="3" height="36" rx="1.5" fill="#BDBDBD"/>
+  <rect x="190" y="258" width="3" height="36" rx="1.5" fill="#BDBDBD"/>
+  <!-- knife right -->
+  <rect x="615" y="260" width="7" height="130" rx="3" fill="#BDBDBD"/>
+  <path d="M622 260 Q626 270 622 300" fill="#D0D0D0" stroke="#BDBDBD" stroke-width="0.5"/>
+  <text x="400" y="558" text-anchor="middle" font-size="18" fill="#1B5E20" letter-spacing="3" font-style="italic">Coaching · Nutrition Perte de Poids</text>
+</svg>

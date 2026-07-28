@@ -1,0 +1,56 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FDF3E3"/>
+      <stop offset="100%" stop-color="#FAE5C5"/>
+    </linearGradient>
+    <linearGradient id="btl" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FEF9EF"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F5DEB3"/>
+    </linearGradient>
+    <linearGradient id="liq" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0B27A" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#CA6F1E" stop-opacity="0.85"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <circle cx="400" cy="290" r="240" fill="#FDEBD0" opacity="0.4"/>
+  <!-- almonds scattered -->
+  <g>
+    <ellipse cx="170" cy="300" rx="38" ry="22" fill="#C68642" transform="rotate(-20,170,300)"/>
+    <ellipse cx="170" cy="300" rx="32" ry="16" fill="#D4A460" transform="rotate(-20,170,300)"/>
+    <line x1="148" y1="308" x2="192" y2="292" stroke="#A0522D" stroke-width="1" opacity="0.5"/>
+
+    <ellipse cx="240" cy="370" rx="38" ry="22" fill="#C68642" transform="rotate(15,240,370)"/>
+    <ellipse cx="240" cy="370" rx="32" ry="16" fill="#D4A460" transform="rotate(15,240,370)"/>
+
+    <ellipse cx="560" cy="290" rx="38" ry="22" fill="#C68642" transform="rotate(25,560,290)"/>
+    <ellipse cx="560" cy="290" rx="32" ry="16" fill="#D4A460" transform="rotate(25,560,290)"/>
+
+    <ellipse cx="620" cy="370" rx="38" ry="22" fill="#C68642" transform="rotate(-10,620,370)"/>
+    <ellipse cx="620" cy="370" rx="32" ry="16" fill="#D4A460" transform="rotate(-10,620,370)"/>
+
+    <ellipse cx="150" cy="400" rx="30" ry="18" fill="#B8860B" transform="rotate(5,150,400)"/>
+    <ellipse cx="640" cy="320" rx="30" ry="18" fill="#B8860B" transform="rotate(-30,640,320)"/>
+  </g>
+  <!-- pump bottle -->
+  <rect x="340" y="150" width="120" height="250" rx="18" fill="url(#btl)" stroke="#F0D5A0" stroke-width="1.5"/>
+  <rect x="346" y="220" width="108" height="176" rx="10" fill="url(#liq)"/>
+  <!-- pump neck -->
+  <rect x="374" y="110" width="52" height="44" rx="6" fill="#FEF0D0" stroke="#E8C97A" stroke-width="1"/>
+  <!-- pump head -->
+  <rect x="340" y="88" width="120" height="26" rx="8" fill="#CA6F1E"/>
+  <!-- nozzle -->
+  <rect x="320" y="100" width="52" height="12" rx="6" fill="#CA6F1E"/>
+  <circle cx="316" cy="106" r="8" fill="#B8860B"/>
+  <!-- label -->
+  <rect x="354" y="228" width="92" height="72" rx="5" fill="white" opacity="0.92"/>
+  <text x="400" y="250" text-anchor="middle" font-size="9" fill="#7D4E00" font-weight="bold" letter-spacing="1.5">AMANDE DOUCE</text>
+  <text x="400" y="266" text-anchor="middle" font-size="7.5" fill="#CA6F1E" letter-spacing="1">HUILE DE MASSAGE</text>
+  <line x1="364" y1="273" x2="436" y2="273" stroke="#F0D5A0" stroke-width="0.5"/>
+  <text x="400" y="286" text-anchor="middle" font-size="7" fill="#D4A460">SOIN CORPS · 200ml</text>
+  <!-- shine -->
+  <rect x="354" y="160" width="14" height="200" rx="7" fill="white" opacity="0.28"/>
+  <text x="400" y="556" text-anchor="middle" font-size="18" fill="#7D4E00" letter-spacing="3" font-style="italic">Huile de Massage · Amande Douce</text>
+</svg>
